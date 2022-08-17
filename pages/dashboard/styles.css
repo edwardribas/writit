@@ -1,0 +1,32 @@
+main > h3{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 40px auto 20px;
+}
+main > table{
+    margin: 0 auto 40px;
+    width: 100%;
+    max-width: 1000px;
+    border-spacing: 8px;
+    /* background-color: rgb(25, 25, 25); */
+}
+main > table tr:hover td,
+main > table tr:hover th{
+    background-color: rgb(30, 30, 30);
+}
+main > table td, th{
+    text-align: start;
+    background-color: rgb(32, 32, 32);
+    padding: 10px 12px;
+    border-radius: 4px;
+    transition: background-color .2s ease;
+}
+main > table th{
+    font-weight: 500;
+    font-size: .98rem;
+}
+main > table td{
+    font-weight: 300;
+    font-size: .95rem;
+}
