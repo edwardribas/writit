@@ -5,8 +5,8 @@
 
 ### Pendentes
 
-- Implementação do banco de dados
-- Interface dos usuários
+- Adicionar currículo
+- Exibir e editar cada informação do currículo
 
 ### Tipos de usuários:
 
