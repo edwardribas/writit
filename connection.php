@@ -1,7 +1,7 @@
 <?php
     $servidor = "127.0.0.1";
     $usuario = "root";
-    $senha = "password";
+    $senha = "";
     $banco = "projeto";
 
     //criando conexão

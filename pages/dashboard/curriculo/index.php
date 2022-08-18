@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if ($_SESSION['tipo'] === '1') {
+        $tipo = 'Aluno';
+    } elseif ($_SESSION['tipo'] === '2') {
+        $tipo = 'Empresa';
+    } else {
+        $tipo = 'Administrador';
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,7 +33,8 @@
 
     <!-- Main -->
     <main>
-        Tais no currículo
+        <?php echo "<p>Tipo de usuário: ". $tipo . "</p>";?>
+        <p>Tais no currículo</p>
     </main>
 
     <!-- Footer -->

@@ -15,7 +15,9 @@ CREATE TABLE curriculo (
     nome varchar(255),
     email varchar(255),
     telefone varchar(14),
-    curso varchar(255)
+    curso varchar(255),
+    id_user int not null,
+    FOREIGN KEY(id_user) REFERENCES usuarios (id)
 );
 
 CREATE TABLE competencias (
