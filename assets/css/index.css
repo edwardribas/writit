@@ -1,3 +1,21 @@
+main{
+    width: 95%;
+    margin: 0 auto;
+}
+section{
+    padding: 70px 35px;
+    gap: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer */
+footer{
+    width: 100%;
+    margin: 50px auto 0;
+}
+
 /* Settings */
 :is(#hero, #benefits) .text a{
     -webkit-user-select: none;

@@ -1,14 +1,14 @@
 <?php
-    $servidor = "127.0.0.1";
-    $usuario = "root";
-    $senha = "";
-    $banco = "projeto";
+    // Constants
+    $host = '127.0.0.1';
+    $username = 'root';
+    $password = 'password';
+    $database = 'projeto';
 
-    //criando conexão
-    $conn = new mysqli($servidor, $usuario, $senha, $banco);
-
-    //checando conexão
-    if($conn->connect_error){
-        die("Conexão falhou: ". $conn->connect_error);
+    // Connection
+    try {
+        $pdo = new PDO( "mysql:host=$host;dbname=$database", $username, $password );
+    } catch( PDOException $e ) {
+        die("Erro ao conectar ao MySQL: " . $e->getMessage());
     }
 ?>

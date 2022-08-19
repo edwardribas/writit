@@ -1,11 +1,10 @@
 <?php
     session_start();
-    if ($_SESSION['tipo'] === '1') {
-        $tipo = 'Aluno';
-    } elseif ($_SESSION['tipo'] === '2') {
-        $tipo = 'Empresa';
-    } else {
-        $tipo = 'Administrador';
+    if (!$_SESSION['logged'] && !$_SESSION['cpf']) {
+        session_unset();
+        session_destroy();
+        Header('Location: ../');
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -33,7 +32,6 @@
 
     <!-- Main -->
     <main>
-        <?php echo "<p>Tipo de usuário: ". $tipo . "</p>";?>
         <p>Tais no currículo</p>
     </main>
 

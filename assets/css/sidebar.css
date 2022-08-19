@@ -20,11 +20,15 @@
     display: block;
     background-color: rgb(56, 50, 50);    
 }
-.sidebar > img{
+.sidebar > a img{
     display: block;
     margin: 0 auto 20px;
     width: 100%;
     max-width: 55px;
+}
+.sidebar > a img{
+    width: 100%;
+    display: block;
 }
 .sidebar > span{
     display: inline-block;

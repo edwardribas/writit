@@ -1,16 +1,8 @@
-<?php
-    if ($_SESSION['logged'] !== 1) {
-        session_unset();
-        Header('Location: ../pages/login');
-    }
-
-    include '../../../connection.php';
-?>
 <header class="sidebar">
-    <img src="../../../assets/img/logo.svg">
+    <a href="../../../."><img src="../../../assets/img/logo.svg"></a>
     <span>Seja bem-vindo,</span>
 
-    <h3><?php echo $_SESSION['username'];?></h3>
+    <h3><?=$nome?></h3>
     <hr>
     <nav>
         <ul>

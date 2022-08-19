@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['cpf'] && isset($_SESSION['cpf'])) {
+        Header('Location: ../dashboard');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,7 +43,7 @@
                     autocomplete="off" 
                     placeholder="Digite sua senha">
             </fieldset>
-            <a href="./cadastro">Ainda não possui uma conta?</a>
+            <a href="../cadastro">Ainda não possui uma conta?</a>
             <input type="submit" value="Entrar">
         </form>
         <a class="btn" href="../../.">Voltar</a>

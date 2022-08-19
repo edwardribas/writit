@@ -1,7 +1,9 @@
 <?php
     // Redirecionamento
     session_start();
-    if ($_SESSION['logged'] === 1) {
+    if (isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['cpf'] && isset($_SESSION['cpf'])) {
         Header('Location: ./perfil');
+        exit;
     }
+    Header('Location: ../login');
 ?>

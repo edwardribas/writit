@@ -1,12 +1,30 @@
 <?php
     session_start();
-    if ($_SESSION['tipo'] === '1') {
-        $tipo = 'Aluno';
-    } elseif ($_SESSION['tipo'] === '2') {
-        $tipo = 'Empresa';
-    } else {
-        $tipo = 'Administrador';
+    if (!$_SESSION['logged'] && !$_SESSION['cpf']) {
+        session_unset();
+        session_destroy();
+        Header('Location: ../');
+        exit;
     }
+
+    include '../../../connection.php';
+    
+    if ($pdo) {
+        $sql = "SELECT nome, tipo FROM usuarios WHERE cpf=?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(1, $_SESSION['cpf']);
+        $res = $stmt->execute();
+    
+        if (!$res) {
+            print_r($stmt->errorInfo());
+            exit;
+        };
+
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $nome = $rows[0]['nome'];
+        $tipo = $rows[0]['tipo'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,12 +47,12 @@
     <?php
         include_once('../../../components/sidebar.php');
     ?>
-    
 
     <!-- Main -->
     <main>
-    <?php echo "<p>Tipo de usuário: ". $tipo . "</p>";?>
         <p>Tais no perfil</p>
+        <p><?=$_SESSION['cpf']?></p>
+        <p><?=$_SESSION['logged']?></p>
         <!-- Vagas recentes -->
         <!-- Empresas conectadas -->
     </main>

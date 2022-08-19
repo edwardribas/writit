@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['cpf'] && isset($_SESSION['cpf'])) {
+        Header('Location: ../dashboard');
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,13 +14,13 @@
     
     <!-- General -->
     <title>Writit | Cadastro</title>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="shortcut icon" href="../../../assets/img/logo.svg">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../login/styles.css">
+    <link rel="shortcut icon" href="../../assets/img/logo.svg">
 </head>
 <body>
     <main>
-        <a href="../../"><img src="../../../assets/img/logo-text.svg"></a>
+        <a href="../../"><img src="../../assets/img/logo-text.svg"></a>
         <form method="POST" action="./validation.php">
             <fieldset>
                 <label for="username">Usuário</label>
@@ -68,10 +74,10 @@
                     <label for="empresa">Empresa</label>
                 </fieldset>
             </fieldset>
-            <a href="../.">Já possui uma conta?</a>
+            <a href="../login">Já possui uma conta?</a>
             <input type="submit" value="Cadastrar">
         </form>
-        <a class="btn" href="../../../.">Voltar</a>
+        <a class="btn" href="../../.">Voltar</a>
     </main>
 </body>
 </html>
