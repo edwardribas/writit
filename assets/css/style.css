@@ -115,9 +115,9 @@ header:not(.sidebar) nav ul .cta-link a:hover{
 
 /* Main */
 main{
-    width: calc(95% - 220px);
-    max-width: 1200px;
-    padding: 1rem;
+    width: calc(100% - 220px);
+    max-width: 1400px;
+    padding: 1.5rem 2rem 1rem;
     margin: 0 auto 0 220px;
 }
 section{

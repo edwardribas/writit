@@ -1,0 +1,111 @@
+.title{
+    position: relative;
+    margin: 0 0 2rem 15px;
+    font-weight: 500;
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 1.8rem;
+}
+.title::before{
+    content: '';
+    display: block;
+    position: absolute;
+    height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -15px;
+    width: 4px;
+    background-color: rgb(47, 130, 246);
+}
+
+main > div{
+    display: block;
+    border: 1px solid rgb(36, 36, 36);
+    border-radius: 24px;
+    width: 100%;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Info Wrapper */
+.user_info{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.user_info h3{
+    color: #D1D1D1;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.user_info p{
+    color: #A4A4A4;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+.user_info figure{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    overflow: visible;
+}
+.user_info figure img{
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    border: 3px solid #2a65b7;
+    height: 100%;
+}
+.user_info figure span{
+    display: block;
+    z-index: 100;
+    font-size: .85rem;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2a65b7;
+    border-radius: 40px;
+    padding: 3px 12px;
+}
+
+/* Currículo */
+.curriculo > p{
+    font-weight: 300;
+    color: #d1d1d1;
+}
+.curriculo a{
+    display: inline-block;
+    margin-top: 15px;
+    border-radius: 50px;
+    background-color: #2a65b7;
+    color: #fff;
+    font-weight: 400;
+    font-size: .9rem;
+    padding: 12px 32px;
+    transition: background-color .2s ease;
+}
+.curriculo a:hover{
+    background-color: #1e4e92;
+}
+.curriculo > div{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 10px;
+}
+.curriculo > div p{
+    font-weight: 300;
+    color: #d1d1d1;
+    border: 1px solid rgb(36, 36, 36);
+    border-radius: 10px;
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: .95rem;
+    transition: background-color .2s ease;
+}
+.curriculo > div p:hover{
+    background-color: rgb(25, 25, 25);
+}
