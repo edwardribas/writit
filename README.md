@@ -5,11 +5,11 @@
 
 ### Pendentes
 
-- Armazenar foto do usuário
-- Educação (Instituição | Curso | Início | Fim | ID_CURR)
-- Hard Skills (Skill | Tempo | ID_CURR)
-- Soft Skills (Skill | ID_CURR)
-- Experiência profissional (Empresa | Função | Início | Fim)
+- Exibir imagem armazenada
+- Educação ( Instituição | Curso | Início | Fim | ID_CURR )
+- Hard Skills ( Skill | Tempo | ID_CURR )
+- Soft Skills ( Skill | ID_CURR )
+- Experiência profissional ( Empresa | Função | Início | Fim | ID_CURR )
 
 ### Tipos de usuários:
 

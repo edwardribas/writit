@@ -1,5 +1,6 @@
 <?php
     session_start();
+
     if (!$_SESSION['logged'] && !$_SESSION['cpf']) {
         session_unset();
         session_destroy();
@@ -34,7 +35,7 @@
         };
 
         if ($tipo === "1") {
-            $_sql = "SELECT telefone, cidade, email, nome, cpf_user FROM curriculo WHERE cpf_user=?";
+            $_sql = "SELECT telefone, cidade, email, nome, cpf_user, foto FROM curriculo WHERE cpf_user=?";
             $stmt_curr = $pdo->prepare($_sql);
             $stmt_curr->bindParam(1, $_SESSION['cpf']);
             $_res = $stmt_curr->execute();
@@ -50,6 +51,7 @@
                 $cidade = $_rows[0]['cidade'];
                 $nomeCurriculo = $_rows[0]['nome'];
                 $emailCurriculo = $_rows[0]['email'];
+                $foto = $_rows[0]['foto'];
             }
         }
     }

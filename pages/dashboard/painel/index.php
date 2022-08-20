@@ -31,7 +31,14 @@
         <div class="info_wrapper">
             <div class="user_info">
                 <figure>
-                    <img src="../../../assets/img/avatar.jpeg">
+                    <?php
+                        $enconded_photo = base64_encode($foto);
+                        if (isset($foto)) {
+                            echo "<img src='data:image/png;base64,$encoded_photo'>";
+                        } else {
+                            echo "<img src=\"../../../assets/img/avatar.jpeg\">";
+                        }
+                    ?>
                     <span><?=$tipoUser?></span>
                 </figure>
                 <div>

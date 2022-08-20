@@ -4,12 +4,6 @@
     // Conexão
     include '../../../connection.php';
 
-    // Dados
-    $nome = $_POST['nome'];
-    $telefone = strval($_POST['telefone']);
-    $email = $_POST['email'];
-    $cidade = $_POST['cidade'];
-
     if ($pdo) {
         // Verificar se o usuário já possui um currículo
         $sql = "SELECT cpf_user FROM curriculo WHERE cpf_user=?";
@@ -26,23 +20,47 @@
             exit;
         }
 
-        // Criação do currículo
-        $sql = "INSERT INTO curriculo (telefone, cidade, email, cpf_user, nome) VALUES (?, ?, ?, ?, ?)";
-        $sth = $pdo->prepare($sql);
-        $sth->bindParam(1, $telefone);
-        $sth->bindParam(2, $cidade);
-        $sth->bindParam(3, $email);
-        $sth->bindParam(4, $_SESSION['cpf']);
-        $sth->bindParam(5, $nome);
-        
-        $res = $sth->execute();
+        if (isset($_POST['submit'])) {
+            $nome = $_POST['nome'];
+            $telefone = strval($_POST['telefone']);
+            $email = $_POST['email'];
+            $cidade = $_POST['cidade'];
+            $foto = $_FILES['imagem'];
 
-        if (!$res) {
-            print_r($sth->errorInfo());
-            exit;
+            if (
+                !empty($foto) && 
+                $foto['type'] === "image/png" || 
+                $foto['type'] === "image/jpeg" || 
+                $foto['type'] === "image/jpeg" &&
+                $foto['size'] < 16000000
+            ) {
+                // // Criação do currículo
+                $imagem = $foto['tmp_name'];
+                $conteudoImagem =  addslashes(file_get_contents($imagem));
+                $sql = "INSERT INTO curriculo (telefone, cidade, email, cpf_user, nome, foto) VALUES (?, ?, ?, ?, ?, ?)";
+                $sth = $pdo->prepare($sql);
+                $sth->bindParam(1, $telefone);
+                $sth->bindParam(2, $cidade);
+                $sth->bindParam(3, $email);
+                $sth->bindParam(4, $_SESSION['cpf']);
+                $sth->bindParam(5, $nome);
+                $sth->bindParam(6, $conteudoImagem);
+                
+                $res = $sth->execute();
+    
+                if (!$res) {
+                    print_r($sth->errorInfo());
+                    exit;
+                }
+                
+                Header('Location: ./');
+            } else {
+                Header('Location: ./cria_curriculo.php');
+            }
+
+        } else {
+            Header('Location: ./cria_curriculo.php');
         }
-        
-        Header('Location: ./');
     }
 
 ?>

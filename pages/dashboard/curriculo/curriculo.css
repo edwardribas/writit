@@ -7,7 +7,7 @@ form fieldset{
     border: none;
     margin-bottom: 20px;
 }
-form fieldset label{
+form > fieldset > label{
     display: inline-block;
     margin-bottom: 10px;
     font-size: .85rem;
@@ -15,8 +15,10 @@ form fieldset label{
     color: rgb(200, 200, 200);
     text-transform: uppercase;
 }
-form fieldset input{
+form > fieldset > input{
     display: block;
+    -webkit-user-select: none;
+    user-select: none;
     width: 100%;
     border: 1px solid rgb(40, 40, 40);
     border-radius: 40px;
@@ -29,19 +31,58 @@ form input[type=submit]{
     display: inline-block;
     font-size: .95rem;
     width: max-content;
-    border-radius: 50px;
+    border-radius: 5px;
     margin-top: 10px;
     border: none;
     cursor: pointer;
-    background-color: rgb(0, 0, 255);
+    background-color: rgb(1, 1, 219);
     color: rgb(200, 200, 200);
     font-weight: 400;
     padding: 13px 25px;
     transition: background-color .2s ease, transform .2s ease;
 }
 form input[type=submit]:hover{
-    background-color: rgb(1, 1, 219);
+    background-color: rgb(0, 0, 185);
 }
 form input[type=submit]:active{
     transform: scale(0.95);
+}
+fieldset.img fieldset{
+    -webkit-user-select: none;
+    user-select: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+fieldset.img fieldset > label{
+    display: inline-block;
+    cursor: pointer;
+    font-size: .95rem;    
+    color: rgb(200, 200, 200);
+    font-weight: 400;
+    padding: 11px 25px;
+    border-radius: 5px;
+    background-color: rgb(1, 1, 219);
+    transition: background-color .2s, transform .2s ease;
+}
+fieldset.img fieldset > input{
+    display: none;
+}
+fieldset.img fieldset > label:hover{
+    background-color: rgb(0, 0, 185);
+}
+fieldset.img fieldset > label:active{
+    transform: scale(0.95);
+}
+fieldset.img fieldset > img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+fieldset.img fieldset > img:not([src]){
+    display: none;
 }

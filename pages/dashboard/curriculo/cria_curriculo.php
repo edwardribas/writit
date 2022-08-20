@@ -30,7 +30,7 @@
     <main>
         <h1 class="title">Criar currículo</h1>
 
-        <form method="POST" action="./valida_curriculo.php">
+        <form method="POST" action="./valida_curriculo.php" enctype="multipart/form-data">
             <fieldset>
                 <label for="telefone">Nome</label>
                 <input 
@@ -76,7 +76,15 @@
                     placeholder="Digite sua cidade"
                 >
             </fieldset>
-            <input type="submit" value="Cadastrar currículo">
+            <fieldset class="img">
+                <label>Foto</label>
+                <fieldset>
+                    <img>
+                    <label for="imagem">Enviar imagem</label>
+                    <input type="file" id="imagem" name="imagem" accept="image/png, image/jpeg, image/jpg">
+                </fieldset>
+            </fieldset>
+            <input type="submit" value="Cadastrar currículo" name="submit">
         </form>
     </main>
 
@@ -86,6 +94,7 @@
     ?>
 
     <!-- Application -->
+    <script src="./curriculo.js"></script>
     <script src="../../../assets/app.js"></script>
 </body>
 </html>
