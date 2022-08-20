@@ -108,6 +108,7 @@
                             <p>Telefone: $telefone</p>
                         </div>
                     ";
+                    echo "<a>Editar</a>";
                 }
             ?>
         </div>

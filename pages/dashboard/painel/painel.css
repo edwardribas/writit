@@ -78,13 +78,13 @@ main > div{
 }
 .curriculo a{
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 20px;
     border-radius: 50px;
     background-color: #2a65b7;
     color: #fff;
     font-weight: 400;
     font-size: .9rem;
-    padding: 12px 32px;
+    padding: 10px 26px;
     transition: background-color .2s ease;
 }
 .curriculo a:hover{
@@ -100,7 +100,7 @@ main > div{
     font-weight: 300;
     color: #d1d1d1;
     border: 1px solid rgb(36, 36, 36);
-    border-radius: 10px;
+    border-radius: 20px;
     display: inline-block;
     padding: 8px 12px;
     font-size: .95rem;
