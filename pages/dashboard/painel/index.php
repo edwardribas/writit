@@ -1,58 +1,5 @@
 <?php
-    session_start();
-    if (!$_SESSION['logged'] && !$_SESSION['cpf']) {
-        session_unset();
-        session_destroy();
-        Header('Location: ../');
-        exit;
-    }
-
-    include '../../../connection.php';
-    
-    if ($pdo) {
-        $sql = "SELECT nome, tipo, email FROM usuarios WHERE cpf=?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(1, $_SESSION['cpf']);
-        $res = $stmt->execute();
-    
-        if (!$res) {
-            print_r($stmt->errorInfo());
-            exit;
-        };
-
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $nome = $rows[0]['nome'];
-        $tipo = $rows[0]['tipo'];
-        $email = $rows[0]['email'];
-
-        if ($tipo === "1") {
-            $tipoUser = 'Aluno';
-        } else if($tipo === "2") {
-            $tipoUser = 'Empresa';
-        } else {
-            $tipoUser = 'Admin';
-        };
-
-        if ($tipo === "1") {
-            $_sql = "SELECT telefone, cidade FROM curriculo WHERE cpf_user=?";
-            $stmt = $pdo->prepare($_sql);
-            $stmt->bindParam(1, $_SESSION['cpf']);
-            $_res = $stmt->execute();
-    
-            if (!$_res) {
-                print_r($stmt->errorInfo());
-                exit;
-            }
-    
-            $possuiCurriculo = $stmt->rowCount() === 0;
-            if ($stmt->rowCount() === 1) {
-                $_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                $telefone = $_rows[0]['telefone'];
-                $cidade = $_rows[0]['cidade'];
-            }
-        }
-    }
-
+    include_once '../user_verify.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -94,21 +41,23 @@
             </div>
         </div>
 
-        <div class="curriculo">
+
+        <div class="<?php echo $tipo === '1' ? "curriculo" : "hidden"; ?>">
             <?php
-                if ($possuiCurriculo) {
+                if ($stmt_curr->rowCount() === 0) {
                     echo "<p>Você ainda não possui um currículo cadastrado!</p>";
-                    echo "<a>Criar</a>";
+                    echo "<a href=\"../curriculo/cria_curriculo.php\">Criar</a>";
                 } else {
                     echo "<p>Dados cadastrados<p>";
                     echo "
                         <div>
-                            <p>Email: $email</p>
+                            <p>Nome completo: $nomeCurriculo</p>
+                            <p>Email: $emailCurriculo</p>
                             <p>Cidade: $cidade</p>
                             <p>Telefone: $telefone</p>
                         </div>
                     ";
-                    echo "<a>Editar</a>";
+                    echo "<a href=\"../curriculo\">Editar</a>";
                 }
             ?>
         </div>

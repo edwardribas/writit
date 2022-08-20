@@ -18,6 +18,9 @@ html, body{
     min-height: 100%;
     scroll-behavior: smooth;
 }
+.hidden{
+    display: none;
+}
 ::-webkit-outer-spin-button, ::-webkit-inner-spin-button{
     appearance: none;
 }

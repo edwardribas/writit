@@ -16,6 +16,7 @@ create table curriculo(
     cidade varchar(100) not null,
     email varchar(255) not null,
 	cpf_user varchar(14) not null,
+    nome varchar(255) not null,
     PRIMARY KEY(id_curr),
     FOREIGN KEY (cpf_user) REFERENCES usuarios(cpf)
 );

@@ -5,32 +5,24 @@
 
 ### Pendentes
 
-- Adicionar currículo
-- Exibir e editar cada informação do currículo
+- Armazenar foto do usuário
+- Educação (Instituição | Curso | Início | Fim | ID_CURR)
+- Hard Skills (Skill | Tempo | ID_CURR)
+- Soft Skills (Skill | ID_CURR)
+- Experiência profissional (Empresa | Função | Início | Fim)
 
 ### Tipos de usuários:
 
-- Administrador
-- Aluno
-- Empresa
+- Aluno (1)
+- Empresa (2)
+- Administrador (3)
 
 ### Dados para os usuários do sistema: 
 
 ID | Nome | CPF | E-mail | Senha | Tipo
 ---|------|-----|--------|-------|-----
 
-### Modelo de Currículo:
-
-- Dados pessoais (nome, email, telefone, foto)
-- Educação
-- Habilidades
-- Competências Sócio-Emocionais
-- Experiência profissional
-
 ### Dados da Empresa
 
 Razão Social | CNPJ | Endereço | Telefone | Ramo de Atividade
 -------------|------|----------|----------|------------------
-
-
-Última atualização: 04/08/2022
