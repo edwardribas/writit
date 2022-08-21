@@ -1,16 +1,18 @@
 <?php
-    session_start();
-    if (isset($_SESSION['logged']) || isset($_SESSION['cpf'])) session_unset();
+    include_once '../../utils/is_logged.php';
+    include_once '../../utils/database.php';
 
-    include_once '../../connection.php';
+    if ($logado === true) exit(header('Location: ../dashboard'));
     
-    $nome = strtolower($_POST['username']);
-    $email = strtolower($_POST['email']);
+    $nome = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $cpf = $_POST['cpf'];
-    $senha = md5($_POST['password']);
-    $tipo = $_POST['tipo'];
+    $senha = $_POST['password'];
     
-    if ($pdo) {
+    if (isset($nome) && isset($email) && isset($cpf) && isset($senha) && isset($_POST['tipo']) &&
+    !empty($nome) && !empty($email) && !empty($cpf) && !empty($senha) && !empty($_POST['tipo']) && strlen($cpf) < 15) {
+        $tipo = $_POST['tipo'];
+
         $sql = "SELECT cpf, email FROM usuarios WHERE email=? AND cpf=?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $email);
@@ -20,12 +22,12 @@
         if (!$res) die($stmt->errorInfo());
         
         if ($stmt->rowCount() === 0) {
-            $sql = "INSERT INTO usuarios (nome, email, senha, cpf, tipo) VALUES (?, ?, ?, ?, ?);";
+            $sql = "INSERT INTO usuarios (nome, email, senha, cpf, tipo) VALUES (?, ?, ?, ?, ?)";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(1, $nome);
-            $stmt->bindParam(2, $email);
-            $stmt->bindParam(3, $senha);
-            $stmt->bindParam(4, $cpf);
+            $stmt->bindParam(1, strtolower($nome));
+            $stmt->bindParam(2, strtolower($email));
+            $stmt->bindParam(3, md5($senha));
+            $stmt->bindParam(4, trim(strval($cpf)));
             $stmt->bindParam(5, $tipo);
             $res = $stmt->execute();
     
@@ -33,10 +35,8 @@
     
             $_SESSION['logged'] = true;
             $_SESSION['cpf'] = $cpf;
-            Header('Location: ../dashboard');
-            exit;
-        };
-        
-        Header('Location: ./');
+            exit(header('Location: ../dashboard'));
+        }
     }
+    header('Location: ./');
 ?>

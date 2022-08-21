@@ -103,7 +103,7 @@ header:not(.sidebar) nav ul .link a{
     display: block;
     transition: color .2s ease;
 }
-header nav ul .link a:hover{
+header:not(.sidebar) nav ul .link a:hover{
     color: rgb(240, 240, 240);
 }
 header:not(.sidebar) nav ul .cta-link a{
@@ -152,7 +152,7 @@ footer p{
 }
 
 @media(max-width: 785px){
-    header button{
+    header:not(.sidebar) button{
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -166,20 +166,20 @@ footer p{
         border: none;
         transition: transform .2s ease, background-color .2s ease;
     }
-    header button span{
+    header:not(.sidebar) button span{
         height: 1px;
         width: 100%;
         border-radius: 10px;
         background-color: rgb(246, 246, 246);
     }
-    header button:active{
+    header:not(.sidebar) button:active{
         transform: scale(0.9);
     }
-    header button.active{
+    header:not(.sidebar) button.active{
         background-color: blue;
     }
 
-    header nav ul{
+    header:not(.sidebar) nav ul{
         position: absolute;
         padding: 35px 30px 40px;
         width: 100%;
@@ -196,20 +196,20 @@ footer p{
         background-color: rgb(40, 40, 40);
         transition: .2s ease;
     }
-    header nav ul li{
+    header:not(.sidebar) nav ul li{
         display: block;
     }
-    header nav ul .link a{
+    header:not(.sidebar) nav ul .link a{
         display: block;
         padding: 10px 16px;
     }
-    header nav ul .cta-link a{
+    header:not(.sidebar) nav ul .cta-link a{
         display: block;
         width: 100%;
         margin-top: 7px;
         border-radius: 5px;
     }
-    header nav.active ul{
+    header:not(.sidebar) nav.active ul{
         visibility: visible;
         transform: translateY(10px);
         opacity: 1;

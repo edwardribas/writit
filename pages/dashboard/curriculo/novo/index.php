@@ -1,7 +1,11 @@
 <?php
-    include_once '../../../user_verify.php';
+    include_once '../../../../utils/is_logged.php';
+    if ($logado === false) exit(header('Location: ../../'));
+
+    include_once '../../../../utils/database.php';
+    include_once '../../../../utils/dados_usuario.php';
+    include_once '../../../../utils/dados_curriculo.php';
     if ($stmt_curr->rowCount() === 1) Header('Location: ../');
-    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,12 +17,13 @@
     
     <!-- General -->
     <title>Writit | Dashboard</title>
-    <link rel="stylesheet" href="../../../../assets/css/style.css">
-    <link rel="stylesheet" href="../../../../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../../styles.css">
-    <link rel="stylesheet" href="../curriculo.css">
     <link rel="shortcut icon" href="../../../../assets/img/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../dashboard.css">
+    <link rel="stylesheet" href="../curriculo.css">
 </head>
 <body>
     <!-- Header -->

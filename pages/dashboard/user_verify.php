@@ -4,8 +4,7 @@
     function destroySession(){
         session_unset();
         session_destroy();
-        Header('Location: ../');
-        exit;
+        exit(header('Location: ../'));
     }
 
     if (!$_SESSION['logged'] && !$_SESSION['cpf']) destroySession();
@@ -16,10 +15,7 @@
     $stmt->bindParam(1, $_SESSION['cpf']);
     $res = $stmt->execute();
 
-    if (!$res) {
-        print_r($stmt->errorInfo());
-        exit;
-    };
+    if (!$res) die($stmt->errorInfo());
 
     if ($stmt->rowCount() === 0) destroySession();
 

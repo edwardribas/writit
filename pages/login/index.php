@@ -1,8 +1,6 @@
 <?php
-    session_start();
-    if (isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['cpf'] && isset($_SESSION['cpf'])) {
-        Header('Location: ../dashboard');
-    }
+    include_once '../../utils/is_logged.php';
+    if ($logado === true) exit(header('Location: ../dashboard'));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,20 +12,22 @@
     
     <!-- General -->
     <title>Writit | Entrar</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="./styles.css">
     <link rel="shortcut icon" href="../../assets/img/logo.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="./login.css">
 </head>
 <body>
     <main>
-        <a href="../"><img src="../../assets/img/logo-text.svg"></a>
+        <a href="../../."><img src="../../assets/img/logo-text.svg"></a>
         <form method="POST" action="./validation.php">
             <fieldset>
                 <label for="email">E-mail</label>
                 <input 
                     type="text" 
                     id="email" 
-                    name="email" 
+                    name="email"
                     autocomplete="off" 
                     spellcheck="false" 
                     placeholder="Digite seu e-mail" 
@@ -44,7 +44,7 @@
                     placeholder="Digite sua senha">
             </fieldset>
             <a href="../cadastro">Ainda não possui uma conta?</a>
-            <input type="submit" value="Entrar">
+            <input type="submit" name="submit" value="Entrar">
         </form>
         <a class="btn" href="../../.">Voltar</a>
     </main>

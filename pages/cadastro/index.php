@@ -1,8 +1,6 @@
 <?php
-    session_start();
-    if (isset($_SESSION['logged']) && $_SESSION['logged'] && $_SESSION['cpf'] && isset($_SESSION['cpf'])) {
-        Header('Location: ../dashboard');
-    }
+    include_once '../../utils/is_logged.php';
+    if ($logado === true) exit(header('Location: ../dashboard'));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,16 +9,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- General -->
     <title>Writit | Cadastro</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../login/styles.css">
     <link rel="shortcut icon" href="../../assets/img/logo.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../login/login.css">
 </head>
 <body>
     <main>
-        <a href="../../"><img src="../../assets/img/logo-text.svg"></a>
+        <a href="../../."><img src="../../assets/img/logo-text.svg"></a>
         <form method="POST" action="./validation.php">
             <fieldset>
                 <label for="username">Usuário</label>

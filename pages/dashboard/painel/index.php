@@ -1,5 +1,10 @@
 <?php
-    include_once '../user_verify.php';
+    include_once '../../../utils/is_logged.php';
+    if ($logado === false) exit(header('Location: ../../.'));
+    
+    include_once '../../../utils/database.php';
+    include_once '../../../utils/dados_usuario.php';
+    include_once '../../../utils/dados_curriculo.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,12 +16,13 @@
     
     <!-- General -->
     <title>Writit | Dashboard</title>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
-    <link rel="stylesheet" href="../../../assets/css/sidebar.css">
-    <link rel="stylesheet" href="./painel.css">
-    <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" href="../../../assets/img/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="./painel.css">
+    <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
     <!-- Header -->
@@ -27,19 +33,17 @@
     <!-- Main -->
     <main>
         <h1 class="title">Painel</h1>
-
         <div class="info_wrapper">
             <div class="user_info">
                 <figure>
                     <?php
-                        // $enconded_photo = base64_encode($foto);
                         if ($stmt_curr->rowCount() === 1) {
-                            echo "<img src=\"data:image/png;base64,$foto\">";
+                            echo "<img src=\"data:image/png;base64,$curr_foto\">";
                         } else {
                             echo "<img src=\"../../../assets/img/avatar.svg\">";
                         }
                     ?>
-                    <span><?=$tipoUser?></span>
+                    <span><?=$tipoStr?></span>
                 </figure>
                 <div>
                     <h3><?php echo ucfirst($nome); ?></h3>
@@ -48,27 +52,31 @@
             </div>
         </div>
 
-
-        <div class="<?php echo $tipo === '1' ? "curriculo" : "hidden"; ?>">
+        <?php
+            if ($tipo === "1") {
+        ?>
+        <div class="curriculo">
             <?php
                 if ($stmt_curr->rowCount() === 0) {
                     echo "<p>Você ainda não possui um currículo cadastrado!</p>";
-                    echo "<a href=\"../curriculo/cria-curriculo/cria_curriculo.php\">Criar</a>";
+                    echo "<a href=\"../curriculo/novo\">Criar</a>";
                 } else {
                     echo "<p>Dados cadastrados<p>";
                     echo "
                         <div>
-                            <p>Nome completo: $nomeCurriculo</p>
-                            <p>Email: $emailCurriculo</p>
-                            <p>Cidade: $cidade</p>
-                            <p>Telefone: $telefone</p>
+                            <p>Nome completo: $curr_nome</p>
+                            <p>Email: $curr_email</p>
+                            <p>Cidade: $curr_cidade</p>
+                            <p>Telefone: $curr_telefone</p>
                         </div>
                     ";
                     echo "<a href=\"../curriculo\">Editar</a>";
                 }
             ?>
         </div>
-        
+        <?php
+            }
+        ?>
     </main>
 
     <!-- Footer -->

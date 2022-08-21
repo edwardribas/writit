@@ -1,5 +1,8 @@
 <?php
-    include_once '../user_verify.php';
+    include_once '../../../utils/is_logged.php';
+    if ($logado === false) exit(header('Location: ../'));
+
+    include_once '../../../utils/dados_curriculo.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,12 +14,13 @@
     
     <!-- General -->
     <title>Writit | Configurações</title>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
-    <link rel="stylesheet" href="../../../assets/css/sidebar.css">
-    <link rel="stylesheet" href="./config.css">
-    <link rel="stylesheet" href="../styles.css">
     <link rel="shortcut icon" href="../../../assets/img/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="./config.css">
+    <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
     <!-- Header -->
@@ -30,15 +34,15 @@
 
         <div>
             <div class="default">
-                <a href="./edit_name">Editar</a>
+                <a href="#">Editar</a>
                 <span>Alterar o nome de seu usuário.</span>
             </div>
             <div class="default">
-                <a href="./edit_email">Editar</a>
+                <a href="#">Editar</a>
                 <span>Alterar o seu endereço de e-mail.</span>
             </div>
             <div class="default">
-                <a href="./edit_senha">Editar</a>
+                <a href="#">Editar</a>
                 <span>Editar a senha da sua conta.</span>
             </div>
         <?php if($stmt_curr->rowCount() === 1) {?>

@@ -1,41 +1,17 @@
 <?php
-    session_start();
+    include_once '../../../../utils/is_logged.php';
+    if ($logado === false) exit(header('Location: ../../'));
 
-    function destroySession(){
-        session_unset();
-        session_destroy();
-        Header('Location: ../../');
-    }
+    include_once '../../../../utils/database.php';
+    include_once '../../../../utils/dados_curriculo.php';
 
-    if (!$_SESSION['logged'] && !$_SESSION['cpf']) destroySession();
-
-    include_once '../../../../connection.php';
-
-    // verifica se o usuário existe
-    $sql = "SELECT email FROM usuarios WHERE cpf=?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(1, $_SESSION['cpf']);
-    $res = $stmt->execute();
-
-    if (!$res) die($stmt->errorInfo());
-    if ($stmt->rowCount() === 0) destroySession();
-
-    // verifica se o usuário tem currículo
-    $sql = "SELECT cidade FROM curriculo WHERE cpf_user = ? LIMIT 1";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(1, $_SESSION['cpf']);
-    $res = $stmt->execute();
-    
-    if (!$res) die($stmt->errorInfo());
-
-    if ($stmt->rowCount() === 1) {
+    if ($stmt_curr->rowCount() === 1) {
         $sql = "DELETE FROM curriculo WHERE cpf_user = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $_SESSION['cpf']);
         $res = $stmt->execute();
-
         if (!$res) die($stmt->errorInfo());
     }
 
-    Header('Location: ../../painel');
+    header('Location: ../../painel');
 ?>

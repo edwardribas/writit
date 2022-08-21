@@ -2,7 +2,7 @@
     <a href="../painel">
         <?php
             if ($stmt_curr->rowCount() === 1) {
-                echo "<img src=\"data:image/png;base64,$foto\">";
+                echo "<img src=\"data:image/png;base64,$curr_foto\">";
             } else {
                 echo "<img src=\"../../../assets/img/avatar.svg\">";
             }
@@ -19,11 +19,11 @@
                 if ($tipo === "1") {
                     echo $stmt_curr->rowCount() === 1
                         ? "<li><a href=\"../curriculo\"><i class=\"fa-solid fa-user\"></i> Currículo</a></li>"
-                        : "<li><a href=\"../curriculo/criar-curriculo\"><i class=\"fa-solid fa-user\"></i> Criar currículo</a></li>";
+                        : "<li><a href=\"../curriculo/novo\"><i class=\"fa-solid fa-user\"></i> Criar currículo</a></li>";
                 }
             ?>
             <li><a href="../configuracoes"><i class="fa-solid fa-gear"></i> Configurações</a></li>
-            <li class="cta-link"><a href="../../../components/processa_logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair </a></li>
+            <li class="cta-link"><a href="../../../utils/deslogar.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair </a></li>
         </ul>
     </nav>
 </header>
