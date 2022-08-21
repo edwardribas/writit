@@ -32,9 +32,9 @@
             <div class="user_info">
                 <figure>
                     <?php
-                        $enconded_photo = base64_encode($foto);
-                        if (isset($foto)) {
-                            echo "<img src='data:image/png;base64,$encoded_photo'>";
+                        // $enconded_photo = base64_encode($foto);
+                        if ($stmt_curr->rowCount() === 1) {
+                            echo "<img src=\"data:image/png;base64,$foto\">";
                         } else {
                             echo "<img src=\"../../../assets/img/avatar.jpeg\">";
                         }
@@ -77,6 +77,5 @@
     ?>
 
     <!-- Application -->
-    <script src="../../../assets/app.js"></script>
 </body>
 </html>

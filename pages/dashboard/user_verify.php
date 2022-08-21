@@ -1,13 +1,14 @@
 <?php
     session_start();
 
-    if (!$_SESSION['logged'] && !$_SESSION['cpf']) {
+    function destroySession(){
         session_unset();
         session_destroy();
         Header('Location: ../');
         exit;
     }
 
+    if (!$_SESSION['logged'] && !$_SESSION['cpf']) destroySession();
     include '../../../connection.php';
 
     if ($pdo) {
@@ -20,6 +21,8 @@
             print_r($stmt->errorInfo());
             exit;
         };
+
+        if ($stmt->rowCount() === 0) destroySession();
 
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $nome = $rows[0]['nome'];

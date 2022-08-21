@@ -95,6 +95,5 @@
 
     <!-- Application -->
     <script src="./curriculo.js"></script>
-    <script src="../../../assets/app.js"></script>
 </body>
 </html>

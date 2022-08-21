@@ -36,7 +36,8 @@
             ) {
                 // // Criação do currículo
                 $imagem = $foto['tmp_name'];
-                $conteudoImagem =  addslashes(file_get_contents($imagem));
+                $imgContent = base64_encode(file_get_contents($imagem));
+
                 $sql = "INSERT INTO curriculo (telefone, cidade, email, cpf_user, nome, foto) VALUES (?, ?, ?, ?, ?, ?)";
                 $sth = $pdo->prepare($sql);
                 $sth->bindParam(1, $telefone);
@@ -44,23 +45,20 @@
                 $sth->bindParam(3, $email);
                 $sth->bindParam(4, $_SESSION['cpf']);
                 $sth->bindParam(5, $nome);
-                $sth->bindParam(6, $conteudoImagem);
-                
+                $sth->bindParam(6, $imgContent);
                 $res = $sth->execute();
     
                 if (!$res) {
                     print_r($sth->errorInfo());
                     exit;
                 }
-                
+
                 Header('Location: ./');
             } else {
                 Header('Location: ./cria_curriculo.php');
             }
-
         } else {
             Header('Location: ./cria_curriculo.php');
         }
     }
-
 ?>

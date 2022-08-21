@@ -5,7 +5,7 @@
 
 ### Pendentes
 
-- Exibir imagem armazenada
+- Configurações (Editar imagem, excluir conta, excluir currículo etc)
 - Educação ( Instituição | Curso | Início | Fim | ID_CURR )
 - Hard Skills ( Skill | Tempo | ID_CURR )
 - Soft Skills ( Skill | ID_CURR )

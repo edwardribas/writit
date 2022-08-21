@@ -6,7 +6,9 @@
         const source = e.target.files[0];
 
         if (source.type === "image/png" || source.type === "image/jpeg" || source.type === "image/jpg") {
-            imgInput.src = URL.createObjectURL(e.target.files[0]);
+            const _src = URL.createObjectURL(e.target.files[0]);
+            console.log(_src);
+            imgInput.src = _src;
             imgInput.onload = () => URL.revokeObjectURL(imgInput.src);
         } else {
             console.log('Arquivos inválidos.');
