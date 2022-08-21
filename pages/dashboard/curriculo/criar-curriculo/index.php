@@ -1,6 +1,6 @@
 <?php
-    include_once '../user_verify.php';
-    if ($stmt_curr->rowCount() === 1) Header('Location: ./');
+    include_once '../../../user_verify.php';
+    if ($stmt_curr->rowCount() === 1) Header('Location: ../');
     
 ?>
 <!DOCTYPE html>
@@ -13,24 +13,24 @@
     
     <!-- General -->
     <title>Writit | Dashboard</title>
-    <link rel="stylesheet" href="../../../assets/css/style.css">
-    <link rel="stylesheet" href="../../../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="./curriculo.css">
-    <link rel="shortcut icon" href="../../../assets/img/logo.svg">
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../curriculo.css">
+    <link rel="shortcut icon" href="../../../../assets/img/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <!-- Header -->
     <?php
-        include_once('../../../components/sidebar.php');
+        include_once('../../../../components/sidebar.php');
     ?>
 
     <!-- Main -->
     <main>
         <h1 class="title">Criar currículo</h1>
 
-        <form method="POST" action="./valida_curriculo.php" enctype="multipart/form-data">
+        <form method="POST" action="./validation.php" enctype="multipart/form-data">
             <fieldset>
                 <label for="telefone">Nome</label>
                 <input 
@@ -90,7 +90,7 @@
 
     <!-- Footer -->
     <?php
-        include_once('../../../components/footer.php');
+        include_once('../../../../components/footer.php');
     ?>
 
     <!-- Application -->

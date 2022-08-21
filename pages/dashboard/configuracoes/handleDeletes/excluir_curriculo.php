@@ -4,12 +4,12 @@
     function destroySession(){
         session_unset();
         session_destroy();
-        Header('Location: ../');
+        Header('Location: ../../');
     }
 
     if (!$_SESSION['logged'] && !$_SESSION['cpf']) destroySession();
 
-    include_once '../../../connection.php';
+    include_once '../../../../connection.php';
 
     // verifica se o usuário existe
     $sql = "SELECT email FROM usuarios WHERE cpf=?";
@@ -37,5 +37,5 @@
         if (!$res) die($stmt->errorInfo());
     }
 
-    Header('Location: ../painel');
+    Header('Location: ../../painel');
 ?>

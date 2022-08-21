@@ -53,7 +53,7 @@
             <?php
                 if ($stmt_curr->rowCount() === 0) {
                     echo "<p>Você ainda não possui um currículo cadastrado!</p>";
-                    echo "<a href=\"../curriculo/cria_curriculo.php\">Criar</a>";
+                    echo "<a href=\"../curriculo/cria-curriculo/cria_curriculo.php\">Criar</a>";
                 } else {
                     echo "<p>Dados cadastrados<p>";
                     echo "

@@ -17,10 +17,7 @@
         $stmt->bindParam(2, $cpf);
         $res = $stmt->execute();
         
-        if (!$res) {
-            print_r($stmt->errorInfo());
-            exit;
-        };
+        if (!$res) die($stmt->errorInfo());
         
         if ($stmt->rowCount() === 0) {
             $sql = "INSERT INTO usuarios (nome, email, senha, cpf, tipo) VALUES (?, ?, ?, ?, ?);";
@@ -32,10 +29,7 @@
             $stmt->bindParam(5, $tipo);
             $res = $stmt->execute();
     
-            if (!$res) {
-                print_r($stmt->errorInfo());
-                exit;
-            }
+            if (!$res) die($stmt->errorInfo());
     
             $_SESSION['logged'] = true;
             $_SESSION['cpf'] = $cpf;

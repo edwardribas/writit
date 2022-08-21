@@ -76,11 +76,9 @@
     </main>
 
     <!-- Footer -->
-    <?php
-        include_once('./components/footer.php');
-    ?>
+    <?php include_once('./components/footer.php'); ?>
 
     <!-- Application -->
-    <script src="./assets/app.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>

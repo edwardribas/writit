@@ -1,5 +1,5 @@
 <header class="sidebar">
-    <a href="../../../.">
+    <a href="../painel">
         <?php
             if ($stmt_curr->rowCount() === 1) {
                 echo "<img src=\"data:image/png;base64,$foto\">";
@@ -19,7 +19,7 @@
                 if ($tipo === "1") {
                     echo $stmt_curr->rowCount() === 1
                         ? "<li><a href=\"../curriculo\"><i class=\"fa-solid fa-user\"></i> Currículo</a></li>"
-                        : "<li><a href=\"../curriculo/cria_curriculo.php\"><i class=\"fa-solid fa-user\"></i> Criar currículo</a></li>";
+                        : "<li><a href=\"../curriculo/criar-curriculo\"><i class=\"fa-solid fa-user\"></i> Criar currículo</a></li>";
                 }
             ?>
             <li><a href="../configuracoes"><i class="fa-solid fa-gear"></i> Configurações</a></li>

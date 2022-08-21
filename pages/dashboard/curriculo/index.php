@@ -30,6 +30,10 @@
     <!-- Main -->
     <main>
         <h1 class="title">Currículo</h1>
+
+        <div>
+            <p>Página disponível em breve.</p>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -38,6 +42,5 @@
     ?>
 
     <!-- Application -->
-    <script src="../../../assets/app.js"></script>
 </body>
 </html>

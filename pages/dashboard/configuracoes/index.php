@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- General -->
-    <title>Writit | Dashboard</title>
+    <title>Writit | Configurações</title>
     <link rel="stylesheet" href="../../../assets/css/style.css">
     <link rel="stylesheet" href="../../../assets/css/sidebar.css">
     <link rel="stylesheet" href="./config.css">
@@ -30,17 +30,25 @@
 
         <div>
             <div class="default">
-                <a href="#">Editar dados</a>
-                <span>Editar os dados de sua conta.</span>
+                <a href="./edit_name">Editar</a>
+                <span>Alterar o nome de seu usuário.</span>
             </div>
-            <?php if($stmt_curr->rowCount() === 1) {?>
-                <div>
-                    <a href="./excluir_curriculo.php" class="exclude">Excluir currículo</a>
-                    <span>Excluir todos os dados do currículo.<span>
-                </div>
-            <?php }?>
+            <div class="default">
+                <a href="./edit_email">Editar</a>
+                <span>Alterar o seu endereço de e-mail.</span>
+            </div>
+            <div class="default">
+                <a href="./edit_senha">Editar</a>
+                <span>Editar a senha da sua conta.</span>
+            </div>
+        <?php if($stmt_curr->rowCount() === 1) {?>
+            <div>
+                <a href="./handleDeletes/excluir_curriculo.php" class="exclude">Excluir</a>
+                <span>Excluir todos os dados do currículo.<span>
+            </div>
+        <?php }?>
             <div class="exclude">
-                <a href="./excluir_conta.php" class="exclude">Excluir conta</a>
+                <a href="./handleDeletes/excluir_conta.php" class="exclude">Excluir</a>
                 <span>Tenha certeza que deseja fazer isso, pois esta ação é irreversível!<span>
             </div>
         </div>

@@ -1,4 +1,1 @@
-<?php
-    // Redirecionamento
-    header('Location: ../perfil');
-?>
+<?php header('Location: ./login');
