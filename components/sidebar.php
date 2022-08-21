@@ -1,5 +1,13 @@
 <header class="sidebar">
-    <a href="../../../."><img src="../../../assets/img/logo.svg"></a>
+    <a href="../../../.">
+        <?php
+            if ($stmt_curr->rowCount() === 1) {
+                echo "<img src=\"data:image/png;base64,$foto\">";
+            } else {
+                echo "<img src=\"../../../assets/img/avatar.svg\">";
+            }
+        ?>
+    </a>
     <span>Seja bem-vindo,</span>
 
     <h3><?php echo ucfirst($nome); ?></h3>
@@ -14,7 +22,7 @@
                         : "<li><a href=\"../curriculo/cria_curriculo.php\"><i class=\"fa-solid fa-user\"></i> Criar currículo</a></li>";
                 }
             ?>
-            <li><a href="#"><i class="fa-solid fa-gear"></i> Configurações</a></li>
+            <li><a href="../configuracoes"><i class="fa-solid fa-gear"></i> Configurações</a></li>
             <li class="cta-link"><a href="../../../components/processa_logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair </a></li>
         </ul>
     </nav>

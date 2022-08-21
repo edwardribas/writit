@@ -36,7 +36,7 @@
                         if ($stmt_curr->rowCount() === 1) {
                             echo "<img src=\"data:image/png;base64,$foto\">";
                         } else {
-                            echo "<img src=\"../../../assets/img/avatar.jpeg\">";
+                            echo "<img src=\"../../../assets/img/avatar.svg\">";
                         }
                     ?>
                     <span><?=$tipoUser?></span>

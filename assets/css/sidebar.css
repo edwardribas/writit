@@ -23,11 +23,14 @@
 .sidebar > a img{
     display: block;
     margin: 0 auto 20px;
+    border-radius: 50%;
     width: 100%;
-    max-width: 55px;
+    height: 100%;
+    object-fit: cover;
 }
 .sidebar > a img{
-    width: 100%;
+    width: 90px;
+    height: 90px;
     display: block;
 }
 .sidebar > span{
