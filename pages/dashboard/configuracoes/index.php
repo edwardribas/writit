@@ -2,6 +2,8 @@
     include_once '../../../utils/is_logged.php';
     if ($logado === false) exit(header('Location: ../'));
 
+    include_once '../../../utils/database.php';
+    include_once '../../../utils/dados_usuario.php';
     include_once '../../../utils/dados_curriculo.php';
 ?>
 <!DOCTYPE html>

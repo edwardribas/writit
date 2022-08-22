@@ -80,8 +80,8 @@ header:not(.sidebar) nav{
     
     margin: 0 auto;
     width: 95%;
-    max-width: 1200px;
-    padding: 30px 35px;
+    max-width: 1300px;
+    padding: 30px 15px;
 }
 header:not(.sidebar) nav > a{
     width: 100%;
