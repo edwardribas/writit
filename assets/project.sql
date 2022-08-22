@@ -21,3 +21,34 @@ create table curriculo(
     PRIMARY KEY(id_curr),
     FOREIGN KEY (cpf_user) REFERENCES usuarios(cpf)
 );
+
+create table educacao(
+	instituicao varchar(255) not null,
+    curso varchar(255) not null,
+    inicio date not null,
+    conclusao date not null,
+	id_curr int not null,
+    foreign key (id_curr) references curriculo(id_curr)
+);
+
+create table habilidades(
+	habilidade varchar(255) not null,
+    tempo int not null,
+	id_curr int not null,
+    foreign key (id_curr) references curriculo(id_curr)
+);
+
+create table competencias(
+	competencia varchar(255) not null,
+	id_curr int not null,
+    foreign key (id_curr) references curriculo(id_curr)
+);
+
+create table experiencia(
+	empresa varchar(255) not null,
+	funcao varchar(255) not null,
+	inicio date not null,
+	conclusao date null,
+	id_curr int not null,
+    foreign key (id_curr) references curriculo(id_curr)
+);

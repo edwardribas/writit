@@ -7,12 +7,13 @@
 
 - Alterar dados da conta (Nome, email, senha)
 - Alterar dados do currículo (Telefone, cidade, email, nome, foto);
+- Adicionar os dados do currículo;
 
-### Em andamento
+### Dados currículo
 
 - Educação ( Instituição | Curso | Início | Fim | ID_CURR )
-- Hard Skills ( Skill | Tempo | ID_CURR )
-- Soft Skills ( Skill | ID_CURR )
+- Habilidades ( Habilidade | Tempo | ID_CURR )
+- Competências ( Competencia | ID_CURR )
 - Experiência profissional ( Empresa | Função | Início | Fim | ID_CURR )
 
 ### Tipos de usuários:
