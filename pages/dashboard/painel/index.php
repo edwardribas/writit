@@ -55,25 +55,39 @@
         <?php
             if ($tipo === "1") {
         ?>
-        <div class="curriculo">
-            <?php
-                if ($stmt_curr->rowCount() === 0) {
-                    echo "<p>Você ainda não possui um currículo cadastrado!</p>";
-                    echo "<a href=\"http://localhost/writit/pages/dashboard/curriculo/novo\">Criar</a>";
-                } else {
-                    echo "<p>Dados cadastrados<p>";
-                    echo "
-                        <div>
-                            <p>Nome completo: $curr_nome</p>
-                            <p>Email: $curr_email</p>
-                            <p>Cidade: $curr_cidade</p>
-                            <p>Telefone: $curr_telefone</p>
-                        </div>
-                    ";
-                    echo "<a href=\"http://localhost/writit/pages/dashboard/curriculo\">Editar</a>";
-                }
-            ?>
-        </div>
+            <div class="curriculo">
+                <?php
+                    if ($stmt_curr->rowCount() === 0) {
+                ?>
+                    <p>Você ainda não possui um currículo cadastrado!</p>
+                    <a href="http://localhost/writit/pages/dashboard/curriculo/novo">Criar</a>
+                <?php
+                    } else {
+                ?>
+                    <p>Seu currículo<p>
+                    <div class="curr_dados">
+                        <p aria-label="Nome completo">
+                            <span><i class="fa-solid fa-user"></i></span> 
+                            <?=$curr_nome?>
+                        </p>
+                        <p aria-label="Email">
+                            <span><i class="fa-solid fa-envelope"></i></span> 
+                            <?=$curr_email?>
+                        </p>
+                        <p aria-label="Cidade">
+                            <span><i class="fa-solid fa-city"></i></span> 
+                            <?=$curr_cidade?>
+                        </p>
+                        <p aria-label="Telefone">
+                            <span><i class="fa-solid fa-phone"></i></span> 
+                            <?=$curr_telefone?>
+                        </p>
+                    </div>
+                    <a href="http://localhost/writit/pages/dashboard/curriculo">Editar</a>
+                <?php
+                    }
+                ?>
+            </div>
         <?php
             }
         ?>

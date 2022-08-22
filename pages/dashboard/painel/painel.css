@@ -63,22 +63,41 @@
 .curriculo a:hover{
     background-color: #1e4e92;
 }
-.curriculo > div{
+
+/* Dados */
+.curr_dados{
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
-    gap: 10px;
+    gap: 15px;
 }
-.curriculo > div p{
-    font-weight: 300;
-    color: #d1d1d1;
-    border: 1px solid rgb(36, 36, 36);
-    border-radius: 20px;
-    display: inline-block;
-    padding: 8px 12px;
+.curr_dados p{
     font-size: .95rem;
-    transition: background-color .2s ease;
+    display: flex;
+    gap: 10px;
+    font-weight: 300;
+    align-items: center;
+    padding: 7px 16px;
+    border-radius: 30px;
+    border: 1px solid rgb(40, 40, 40);
+    transition: transform .2s ease, background-color .2s ease;
 }
-.curriculo > div p:hover{
-    background-color: rgb(25, 25, 25);
+.curr_dados p > span{
+    display: flex;
+    font-size: .85  rem;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #141414;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    transition: background-color .2s ease, color .2s ease;
+}
+.curr_dados p:hover{
+    transform: translateY(-3px);
+    background-color: #161616;
+}
+.curr_dados p:hover > span{
+    background-color: #f1f1f1;
 }
