@@ -1,6 +1,6 @@
 <?php
     include_once '../../../utils/is_logged.php';
-    if ($logado === false) exit(header('Location: ../../.'));
+    if ($logado === false) exit(header('Location: http://localhost/writit/pages/login'));
     
     include_once '../../../utils/database.php';
     include_once '../../../utils/dados_usuario.php';
@@ -40,7 +40,7 @@
                         if ($stmt_curr->rowCount() === 1) {
                             echo "<img src=\"data:image/png;base64,$curr_foto\">";
                         } else {
-                            echo "<img src=\"../../../assets/img/avatar.svg\">";
+                            echo "<img src=\"http://localhost/writit/assets/img/avatar.svg\">";
                         }
                     ?>
                     <span><?=$tipoStr?></span>
@@ -59,7 +59,7 @@
             <?php
                 if ($stmt_curr->rowCount() === 0) {
                     echo "<p>Você ainda não possui um currículo cadastrado!</p>";
-                    echo "<a href=\"../curriculo/novo\">Criar</a>";
+                    echo "<a href=\"http://localhost/writit/pages/dashboard/curriculo/novo\">Criar</a>";
                 } else {
                     echo "<p>Dados cadastrados<p>";
                     echo "
@@ -70,7 +70,7 @@
                             <p>Telefone: $curr_telefone</p>
                         </div>
                     ";
-                    echo "<a href=\"../curriculo\">Editar</a>";
+                    echo "<a href=\"http://localhost/writit/pages/dashboard/curriculo\">Editar</a>";
                 }
             ?>
         </div>

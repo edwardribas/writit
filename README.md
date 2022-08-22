@@ -5,7 +5,11 @@
 
 ### Pendentes
 
-- Configurações (Editar imagem, excluir conta, excluir currículo etc)
+- Alterar dados da conta (Nome, email, senha)
+- Alterar dados do currículo (Telefone, cidade, email, nome, foto);
+
+### Em andamento
+
 - Educação ( Instituição | Curso | Início | Fim | ID_CURR )
 - Hard Skills ( Skill | Tempo | ID_CURR )
 - Soft Skills ( Skill | ID_CURR )

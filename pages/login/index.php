@@ -1,6 +1,6 @@
 <?php
     include_once '../../utils/is_logged.php';
-    if ($logado === true) exit(header('Location: ../dashboard'));
+    if ($logado === true) exit(header('Location: http://localhost/writit/pages/dashboard'));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,7 +46,7 @@
             <a href="../cadastro">Ainda não possui uma conta?</a>
             <input type="submit" name="submit" value="Entrar">
         </form>
-        <a class="btn" href="../../.">Voltar</a>
+        <a class="btn" href="http://localhost/writit/">Voltar</a>
     </main>
 </body>
 </html>

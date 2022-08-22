@@ -1,6 +1,6 @@
 <?php
     include_once '../../../utils/is_logged.php';
-    if ($logado === false) exit(header('Location: ../'));
+    if ($logado === false) exit(header('Location: http://localhost/writit/pages/login'));
 
     include_once '../../../utils/database.php';
     include_once '../../../utils/dados_usuario.php';

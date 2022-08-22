@@ -3,8 +3,8 @@
     include '../../../../utils/database.php';
     include '../../../../utils/dados_curriculo.php';
 
-    if ($logado === false) exit(header('Location: ../../../'));
-    if ($stmt_curr->rowCount() > 0) exit(header('Location: ../'));
+    if ($logado === false) exit(header('Location: http://localhost/writit/pages/login'));
+    if ($stmt_curr->rowCount() > 0) exit(header('Location: http://localhost/writit/pages/dashboard/curriculo'));
 
     $nome = $_POST['nome'];
     $telefone = strval($_POST['telefone']);
@@ -12,9 +12,11 @@
     $cidade = $_POST['cidade'];
     $foto = $_FILES['imagem'];
 
-    if (isset($foto) && isset($nome) && isset($telefone) && isset($email) && isset($cidade) && !empty($foto) && !empty($nome) !empty($telefone) && !empty($email) && !empty($cidade) && 
-    $foto['type'] === "image/png" || $foto['type'] === "image/jpeg" || $foto['type'] === "image/jpeg" && $foto['size'] < 16000000) {
-        // Arrumar essa página (if dando erro)
+    if (
+        isset($nome) && isset($telefone) && isset($email) && isset($cidade) && isset($foto) &&
+        !empty($nome) && !empty($telefone) && !empty($email) && !empty($cidade) && 
+        $foto['type'] === "image/png" || $foto['type'] === "image/jpeg" || $foto['type'] === "image/jpeg" && $foto['size'] < 16000000
+    ){
         // // Criação do currículo
         $imagem = $foto['tmp_name'];
         $imgContent = base64_encode(file_get_contents($imagem));
@@ -30,7 +32,7 @@
         $res = $stmt->execute();
 
         if (!$res) die($stmt->errorInfo());
-        header('Location: ../');
+        header('Location: http://localhost/writit/pages/dashboard/curriculo');
     }
-    header('Location: ./');
+    header('Location: http://localhost/writit/pages/dashboard/curriculo/novo');
 ?>

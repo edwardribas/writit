@@ -2,8 +2,8 @@
     include_once '../utils/is_logged.php';
 
     if ($logado = true) {
-        header('Location: ./painel');
+        header('Location: http://localhost/writit/pages/dashboard/painel');
     } else {
-        header('Location: ../login');
+        header('Location: http://localhost/writit/pages/login');
     }
 ?>

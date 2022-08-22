@@ -1,11 +1,11 @@
 <?php
     include_once '../../../../utils/is_logged.php';
-    if ($logado === false) exit(header('Location: ../../'));
+    if ($logado === false) exit(header('Location: http://localhost/writit/pages/login'));
 
     include_once '../../../../utils/database.php';
     include_once '../../../../utils/dados_usuario.php';
     include_once '../../../../utils/dados_curriculo.php';
-    if ($stmt_curr->rowCount() === 1) Header('Location: ../');
+    if ($stmt_curr->rowCount() === 1) Header('Location: http://localhost/writit/pages/dashboard/curriculo');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,14 +37,14 @@
 
         <form method="POST" action="./validation.php" enctype="multipart/form-data">
             <fieldset>
-                <label for="telefone">Nome</label>
+                <label for="telefone">Nome completo</label>
                 <input 
                     type="text"
                     id="nome" 
                     name="nome" 
                     autocomplete="off" 
                     spellcheck="false" 
-                    placeholder="Digite seu nome completo" 
+                    placeholder="Digite o seu nome completo" 
                     autofocus
                 >
             </fieldset>

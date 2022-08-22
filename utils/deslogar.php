@@ -1,6 +1,7 @@
 <?php
     session_start();
+    $_SESSION['logged'] = false;
     session_unset();
     session_destroy();
-    exit(header('Location: ../../../'));
+    exit(header('Location: http://localhost/writit/'));
 ?>
