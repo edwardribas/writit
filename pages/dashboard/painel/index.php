@@ -83,7 +83,7 @@
                             <?=$curr_telefone?>
                         </p>
                     </div>
-                    <a href="http://localhost/writit/pages/dashboard/curriculo">Editar</a>
+                    <a href="http://localhost/writit/pages/dashboard/curriculo">Acessar</a>
                 <?php
                     }
                 ?>

@@ -37,7 +37,64 @@
         <h1 class="title">Currículo</h1>
 
         <div>
+            <h2>Dados gerais</h2>
+
+            <div class="curr_dados">
+                <p aria-label="Nome completo">
+                    <span><i class="fa-solid fa-user"></i></span> 
+                    <?=$curr_nome?>
+                </p>
+                <p aria-label="Email">
+                    <span><i class="fa-solid fa-envelope"></i></span> 
+                    <?=$curr_email?>
+                </p>
+                <p aria-label="Cidade">
+                    <span><i class="fa-solid fa-city"></i></span> 
+                    <?=$curr_cidade?>
+                </p>
+                <p aria-label="Telefone">
+                    <span><i class="fa-solid fa-phone"></i></span> 
+                    <?=$curr_telefone?>
+                </p>
+            </div>
+        </div>
+        <div>
+            <h2>Habilidades</h2>
             <p>Página disponível em breve.</p>
+            <form class="add_form">
+                <input type="text" placeholder="Habilidade">
+                <input type="number" placeholder="Tempo de experiência (anos)">
+                <button>Adicionar</button>
+            </form>
+        </div>
+        <div>
+            <h2>Competências</h2>
+            <p>Página disponível em breve.</p>
+            <form class="add_form">
+                <input type="text" placeholder="Competência">
+                <button>Adicionar</button>
+            </form>
+        </div>
+        <div>
+            <h2>Educação</h2>
+            <p>Página disponível em breve.</p>
+            <form class="add_form">
+                <input type="text" placeholder="Instituição">
+                <input type="number" placeholder="Ano de início">
+                <input type="number" placeholder="Ano de conclusão">
+                <button>Adicionar</button>
+            </form>
+        </div>
+        <div>
+            <h2>Experiência profissional</h2>
+            <p>Página disponível em breve.</p>
+            <form class="add_form">
+                <input type="text" placeholder="Empresa">
+                <input type="text" placeholder="Função">
+                <input type="number" placeholder="Ano de início">
+                <input type="number" placeholder="Ano de conclusão">
+                <button>Adicionar</button>
+            </form>
         </div>
     </main>
 

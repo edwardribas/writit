@@ -86,3 +86,80 @@ fieldset.img fieldset > img{
 fieldset.img fieldset > img:not([src]){
     display: none;
 }
+
+main > div h2{
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.curr_dados{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 15px;
+}
+.curr_dados p{
+    font-size: .95rem;
+    display: flex;
+    gap: 10px;
+    font-weight: 300;
+    align-items: center;
+    padding: 7px 16px;
+    border-radius: 30px;
+    border: 1px solid rgb(40, 40, 40);
+    transition: transform .2s ease, background-color .2s ease;
+}
+.curr_dados p > span{
+    display: flex;
+    font-size: .85  rem;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #141414;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    transition: background-color .2s ease, color .2s ease;
+}
+.curr_dados p:hover{
+    transform: translateY(-3px);
+    background-color: #161616;
+}
+.curr_dados p:hover > span{
+    background-color: #f1f1f1;
+}
+
+.add_form{
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    gap: 10px;
+    -webkit-user-select: none;
+    user-select: none;
+    max-width: max-content;
+}
+.add_form input, .add_form button{
+    display: block;
+    padding: 12px 16px;
+    border-radius: 40px;
+    outline: none;
+    border: none;
+}
+.add_form input{
+    width: 100%;
+    max-width: none;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgb(32, 32, 32);
+    background-color: transparent;
+    transition: border .2s ease, color .2s ease;
+}
+.add_form input:focus{
+    color: rgb(145, 145, 145);
+    border: 1px solid rgb(41, 41, 41);
+}
+.add_form button{
+    background-color: rgb(1, 1, 219);
+    color: #d4d4d4;
+    cursor: pointer;
+}
