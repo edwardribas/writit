@@ -25,8 +25,8 @@ create table curriculo(
 create table educacao(
 	instituicao varchar(255) not null,
     curso varchar(255) not null,
-    inicio date not null,
-    conclusao date not null,
+    inicio int not null,
+    conclusao int not null,
 	id_curr int not null,
     foreign key (id_curr) references curriculo(id_curr)
 );
@@ -47,8 +47,8 @@ create table competencias(
 create table experiencia(
 	empresa varchar(255) not null,
 	funcao varchar(255) not null,
-	inicio date not null,
-	conclusao date null,
+	inicio int not null,
+	conclusao int null,
 	id_curr int not null,
     foreign key (id_curr) references curriculo(id_curr)
 );

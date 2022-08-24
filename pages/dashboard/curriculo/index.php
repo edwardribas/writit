@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./curriculo.css">
 </head>
 <body>
-    <!-- Header -->
+    Header
     <?php
         include_once('../../../components/sidebar.php');
     ?>
@@ -38,8 +38,11 @@
 
         <div>
             <h2>Dados gerais</h2>
-
             <div class="curr_dados">
+                <p aria-label="ID do currículo">
+                    <span><i class="fa-solid fa-id-badge"></i></span> 
+                    <?=$curr_id?>
+                </p>
                 <p aria-label="Nome completo">
                     <span><i class="fa-solid fa-user"></i></span> 
                     <?=$curr_nome?>
@@ -58,26 +61,69 @@
                 </p>
             </div>
         </div>
+
         <div>
             <h2>Habilidades</h2>
-            <p>Página disponível em breve.</p>
+            <?php
+                if ($curr_dados['habilidades'] == false) {
+                    echo "<p>Você ainda não adicionou nenhum dado!</p>";
+                } else {
+                    foreach($curr_habilidades as $item){
+                        echo "
+                            <div>
+                                <p>".$item['habilidade']."<p>
+                                <p>".$item['tempo']."<p>
+                            </div>
+                        ";
+                    }
+                }
+            ?>
             <form class="add_form">
                 <input type="text" placeholder="Habilidade">
-                <input type="number" placeholder="Tempo de experiência (anos)">
+                <input type="number" placeholder="Anos de experiência">
                 <button>Adicionar</button>
             </form>
         </div>
+
         <div>
             <h2>Competências</h2>
-            <p>Página disponível em breve.</p>
+            <?php
+                if ($curr_dados['competencias'] === false) {
+                    echo "<p>Você ainda não adicionou nenhum dado!</p>";
+                } else {
+                    foreach($curr_competencias as $item){
+                        echo "
+                            <div>
+                                <p>".$item['competencia']."<p>
+                            </div>
+                        ";
+                    }
+                }
+            ?>
             <form class="add_form">
                 <input type="text" placeholder="Competência">
                 <button>Adicionar</button>
             </form>
         </div>
+
         <div>
             <h2>Educação</h2>
-            <p>Página disponível em breve.</p>
+            <?php
+                if ($curr_dados['educacao'] === false) {
+                    echo "<p>Você ainda não adicionou nenhum dado!</p>";
+                } else {
+                    foreach($curr_educacao as $item){
+                        echo "
+                            <div>
+                                <p>".$item['instituicao']."<p>
+                                <p>".$item['curso']."<p>
+                                <p>".$item['inicio']."<p>
+                                <p>".$item['conclusao']."<p>
+                            </div>
+                        ";
+                    }
+                }
+            ?>
             <form class="add_form">
                 <input type="text" placeholder="Instituição">
                 <input type="number" placeholder="Ano de início">
@@ -85,9 +131,25 @@
                 <button>Adicionar</button>
             </form>
         </div>
+
         <div>
             <h2>Experiência profissional</h2>
-            <p>Página disponível em breve.</p>
+            <?php
+                if ($curr_dados['experiencia'] === false) {
+                    echo "<p>Você ainda não adicionou nenhum dado!</p>";
+                } else {
+                    foreach($curr_experiencias as $item){
+                        echo "
+                            <div>
+                                <p>".$item['empresa']."<p>
+                                <p>".$item['funcao']."<p>
+                                <p>".$item['inicio']."<p>
+                                <p>".$item['conclusao']."<p>
+                            </div>
+                        ";
+                    }
+                }
+            ?>
             <form class="add_form">
                 <input type="text" placeholder="Empresa">
                 <input type="text" placeholder="Função">
