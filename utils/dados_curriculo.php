@@ -23,7 +23,7 @@
         );
 
         // Habilidades
-        $sql = "SELECT habilidade, tempo FROM habilidades WHERE id_curr = ?";
+        $sql = "SELECT id_hab, habilidade, tempo FROM habilidades WHERE id_curr = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
@@ -34,7 +34,7 @@
         }
 
         // Educação
-        $sql = "SELECT instituicao, curso, inicio, conclusao FROM educacao WHERE id_curr = ?";
+        $sql = "SELECT id_edu, instituicao, curso, inicio, conclusao FROM educacao WHERE id_curr = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
@@ -45,7 +45,7 @@
         }
         
         // // Competências
-        $sql = "SELECT competencia FROM competencias WHERE id_curr = ?";
+        $sql = "SELECT id_comp, competencia FROM competencias WHERE id_curr = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
@@ -56,7 +56,7 @@
         }
         
         // // Experiência profissional
-        $sql = "SELECT empresa, funcao, inicio, conclusao FROM experiencia WHERE id_curr = ?";
+        $sql = "SELECT id_exp, empresa, funcao, inicio, conclusao FROM experiencia WHERE id_curr = ?";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();

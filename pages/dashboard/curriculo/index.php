@@ -68,14 +68,25 @@
                 if ($curr_dados['habilidades'] == false) {
                     echo "<p>Você ainda não adicionou nenhum dado!</p>";
                 } else {
+                    echo "
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Habilidade</th>
+                                <th>Tempo</th>
+                            </tr>
+                    ";
                     foreach($curr_habilidades as $item){
+                        $string = intval($item['tempo']) > 1 ? "anos" : "ano";
                         echo "
-                            <div>
-                                <p>".$item['habilidade']."<p>
-                                <p>".$item['tempo']."<p>
-                            </div>
+                            <tr>
+                                <td>".$item['id_hab']."<td>
+                                <td>".$item['habilidade']."<td>
+                                <td>".$item['tempo']." $string<td>
+                            </tr>
                         ";
                     }
+                    echo "</table>";
                 }
             ?>
             <form class="add_form">
@@ -91,13 +102,22 @@
                 if ($curr_dados['competencias'] === false) {
                     echo "<p>Você ainda não adicionou nenhum dado!</p>";
                 } else {
+                    echo "
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Competência</th>
+                            </tr>
+                    ";
                     foreach($curr_competencias as $item){
                         echo "
-                            <div>
-                                <p>".$item['competencia']."<p>
-                            </div>
+                            <tr>
+                                <td>".$item['id_comp']."<td>
+                                <td>".$item['competencia']."<td>
+                            </tr>
                         ";
                     }
+                    echo "</table>";
                 }
             ?>
             <form class="add_form">
@@ -112,16 +132,28 @@
                 if ($curr_dados['educacao'] === false) {
                     echo "<p>Você ainda não adicionou nenhum dado!</p>";
                 } else {
+                    echo "
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Instituição</th>
+                                <th>Curso</th>
+                                <th>Início</th>
+                                <th>Conclusão</th>
+                            </tr>
+                    ";
                     foreach($curr_educacao as $item){
                         echo "
-                            <div>
-                                <p>".$item['instituicao']."<p>
-                                <p>".$item['curso']."<p>
-                                <p>".$item['inicio']."<p>
-                                <p>".$item['conclusao']."<p>
-                            </div>
+                            <tr>
+                                <td>".$item['id_edu']."<td>
+                                <td>".$item['instituicao']."<td>
+                                <td>".$item['curso']."<td>
+                                <td>".$item['inicio']."<td>
+                                <td>".$item['conclusao']."<td>
+                            </tr>
                         ";
                     }
+                    echo "</table>";
                 }
             ?>
             <form class="add_form">
@@ -138,16 +170,28 @@
                 if ($curr_dados['experiencia'] === false) {
                     echo "<p>Você ainda não adicionou nenhum dado!</p>";
                 } else {
+                    echo "
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Empresa</th>
+                                <th>Função</th>
+                                <th>Início</th>
+                                <th>Conclusão</th>
+                            </tr>
+                    ";
                     foreach($curr_experiencias as $item){
                         echo "
-                            <div>
-                                <p>".$item['empresa']."<p>
-                                <p>".$item['funcao']."<p>
-                                <p>".$item['inicio']."<p>
-                                <p>".$item['conclusao']."<p>
-                            </div>
+                            <tr>
+                                <td>".$item['id_exp']."<td>
+                                <td>".$item['empresa']."<td>
+                                <td>".$item['funcao']."<td>
+                                <td>".$item['inicio']."<td>
+                                <td>".$item['conclusao']."<td>
+                            </tr>
                         ";
                     }
+                    echo "</table>";
                 }
             ?>
             <form class="add_form">

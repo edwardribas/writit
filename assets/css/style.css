@@ -24,6 +24,9 @@ html, body{
 ::-webkit-outer-spin-button, ::-webkit-inner-spin-button{
     appearance: none;
 }
+::selection{
+    background-color: rgba(200, 200, 200, 0.174);
+}
 body{
     background-color: rgb(20, 20, 20);
     color: rgb(220, 220, 220);

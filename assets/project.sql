@@ -23,6 +23,7 @@ create table curriculo(
 );
 
 create table educacao(
+    id_edu int not null auto_increment primary key,
 	instituicao varchar(255) not null,
     curso varchar(255) not null,
     inicio int not null,
@@ -32,6 +33,7 @@ create table educacao(
 );
 
 create table habilidades(
+    id_hab int not null auto_increment primary key,
 	habilidade varchar(255) not null,
     tempo int not null,
 	id_curr int not null,
@@ -39,12 +41,14 @@ create table habilidades(
 );
 
 create table competencias(
+    id_comp int not null auto_increment primary key,
 	competencia varchar(255) not null,
 	id_curr int not null,
     foreign key (id_curr) references curriculo(id_curr)
 );
 
 create table experiencia(
+    id_exp int not null auto_increment primary key,
 	empresa varchar(255) not null,
 	funcao varchar(255) not null,
 	inicio int not null,
