@@ -1,32 +1,3 @@
-main > div > div{
-    margin-bottom: 20px;
-}
-main > div > div{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-main > div > div a{
-    user-select: none;
-    border: 1px solid rgb(40, 40, 40);
-    border-radius: 50px;
-    padding: 7px 14px;
-    color: rgb(234, 65, 65);
-    border: 1px solid rgb(234, 65, 65);
-    transition: background-color .2s, color .2s ease, transform .2s ease;
-}
-
-main > div > div span{
-    color: rgb(210, 210, 210);
-    font-weight: 200;
-}
-main > div > div a:hover{
-    background-color: rgb(234, 65, 65);
-    color: #141414;
-}
-main > div > div a:active, .goback:active, .inputedit:active{
-    transform: scale(0.95);
-}
 .default a{
     color: rgb(109, 143, 246);
     border-color: rgb(109, 143, 246);
@@ -79,4 +50,58 @@ form > fieldset > input{
     background-color: transparent;
     color: rgb(200, 200, 200);
     font-weight: 400;
+}
+
+/* Config */
+.config{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.config span{
+    color: #d4d4d4;
+    font-weight: 200;
+    font-size: .96rem;
+}
+/* Delete */
+/* .exclude  */
+.exclude button, .confirmation a{
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid rgb(40, 40, 40);
+    border-radius: 50px;
+    padding: 7px 14px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgb(234, 65, 65);
+    background-color: transparent;
+    border: 1px solid rgb(234, 65, 65);
+    transition: background-color .2s, color .2s ease, transform .2s ease;
+}
+:is(.exclude button, .confirmation a):active{
+    transform: scale(0.95);
+}
+:is(.exclude button, .confirmation a):hover{
+    background-color: rgb(234, 65, 65);
+    color: #141414;
+}
+
+.exclude > button.hidden{
+    display: none;
+}
+.confirmation{
+    display: none;
+    gap: 10px;
+}
+.confirmation.visible{
+    display: flex;
+}
+.confirmation button{
+    border-color: rgb(48, 48, 48);
+    font-weight: 300;
+}
+.confirmation button:hover{
+    background-color: rgb(33, 33, 33);
+    color: rgb(199, 199, 199);
 }

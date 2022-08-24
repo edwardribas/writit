@@ -35,26 +35,23 @@
         <h1 class="title">Configurações</h1>
 
         <div>
-            <div class="default">
-                <a href="#">Editar</a>
-                <span>Alterar o nome de seu usuário.</span>
-            </div>
-            <div class="default">
-                <a href="#">Editar</a>
-                <span>Alterar o seu endereço de e-mail.</span>
-            </div>
-            <div class="default">
-                <a href="#">Editar</a>
-                <span>Editar a senha da sua conta.</span>
-            </div>
-        <?php if($stmt_curr->rowCount() === 1) {?>
-            <div>
-                <a href="./handleDeletes/excluir_curriculo.php" class="exclude">Excluir</a>
-                <span>Excluir todos os dados do currículo.<span>
-            </div>
-        <?php }?>
-            <div class="exclude">
-                <a href="./handleDeletes/excluir_conta.php" class="exclude">Excluir</a>
+            <?php if($stmt_curr->rowCount() === 1) {?>
+                <div class="config exclude">
+                    <button>Excluir</button>
+                    <div class="confirmation">
+                        <a href="./deletar/curriculo.php">Confirmar</a>
+                        <button>Cancelar</button>
+                    </div>
+                    <span>Excluir todos os dados do currículo.<span>
+                </div>
+            <?php }?>
+
+            <div class="config exclude">                    
+                <button>Excluir</button>
+                <div class="confirmation">
+                    <a href="./deletar/conta.php">Confirmar</a>
+                    <button>Cancelar</button>
+                </div>
                 <span>Tenha certeza que deseja fazer isso, pois esta ação é irreversível!<span>
             </div>
         </div>
@@ -67,5 +64,6 @@
     ?>
 
     <!-- Application -->
+    <script src="./app.js"></script>
 </body>
 </html>

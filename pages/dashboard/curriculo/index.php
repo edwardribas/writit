@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="./curriculo.css">
 </head>
 <body>
-    Header
     <?php
         include_once('../../../components/sidebar.php');
     ?>
@@ -71,7 +70,6 @@
                     echo "
                         <table>
                             <tr>
-                                <th>ID</th>
                                 <th>Habilidade</th>
                                 <th>Tempo</th>
                             </tr>
@@ -80,18 +78,17 @@
                         $string = intval($item['tempo']) > 1 ? "anos" : "ano";
                         echo "
                             <tr>
-                                <td>".$item['id_hab']."<td>
-                                <td>".$item['habilidade']."<td>
-                                <td>".$item['tempo']." $string<td>
+                                <td>".$item['habilidade']."</td>
+                                <td>".$item['tempo']." $string</td>
                             </tr>
                         ";
                     }
                     echo "</table>";
                 }
             ?>
-            <form class="add_form">
-                <input type="text" placeholder="Habilidade">
-                <input type="number" placeholder="Anos de experiência">
+            <form class="add_form" method="POST" action="./inserir/habilidade.php">
+                <input type="text" placeholder="Habilidade" name="habilidade" autocomplete="off" autofocus>
+                <input type="number" placeholder="Anos de experiência" name="experiencia" autocomplete="off">
                 <button>Adicionar</button>
             </form>
         </div>
@@ -105,23 +102,21 @@
                     echo "
                         <table>
                             <tr>
-                                <th>ID</th>
                                 <th>Competência</th>
                             </tr>
                     ";
                     foreach($curr_competencias as $item){
                         echo "
                             <tr>
-                                <td>".$item['id_comp']."<td>
-                                <td>".$item['competencia']."<td>
+                                <td>".$item['competencia']."</td>
                             </tr>
                         ";
                     }
                     echo "</table>";
                 }
             ?>
-            <form class="add_form">
-                <input type="text" placeholder="Competência">
+            <form class="add_form" method="POST" action="./inserir/competencia.php">
+                <input type="text" placeholder="Competência" name="competencia" autocomplete="off">
                 <button>Adicionar</button>
             </form>
         </div>
@@ -135,7 +130,6 @@
                     echo "
                         <table>
                             <tr>
-                                <th>ID</th>
                                 <th>Instituição</th>
                                 <th>Curso</th>
                                 <th>Início</th>
@@ -145,21 +139,21 @@
                     foreach($curr_educacao as $item){
                         echo "
                             <tr>
-                                <td>".$item['id_edu']."<td>
-                                <td>".$item['instituicao']."<td>
-                                <td>".$item['curso']."<td>
-                                <td>".$item['inicio']."<td>
-                                <td>".$item['conclusao']."<td>
+                                <td>".$item['instituicao']."</td>
+                                <td>".$item['curso']."</td>
+                                <td>".$item['inicio']."</td>
+                                <td>".$item['conclusao']."</td>
                             </tr>
                         ";
                     }
                     echo "</table>";
                 }
             ?>
-            <form class="add_form">
-                <input type="text" placeholder="Instituição">
-                <input type="number" placeholder="Ano de início">
-                <input type="number" placeholder="Ano de conclusão">
+            <form class="add_form" method="POST" action="./inserir/educacao.php">
+                <input type="text" placeholder="Instituição" name="instituicao" autocomplete="off">
+                <input type="text" placeholder="Curso" name="curso" autocomplete="off">
+                <input type="number" placeholder="Ano de início" name="inicio">
+                <input type="number" placeholder="Ano de conclusão" name="conclusao">
                 <button>Adicionar</button>
             </form>
         </div>
@@ -173,7 +167,6 @@
                     echo "
                         <table>
                             <tr>
-                                <th>ID</th>
                                 <th>Empresa</th>
                                 <th>Função</th>
                                 <th>Início</th>
@@ -183,22 +176,21 @@
                     foreach($curr_experiencias as $item){
                         echo "
                             <tr>
-                                <td>".$item['id_exp']."<td>
-                                <td>".$item['empresa']."<td>
-                                <td>".$item['funcao']."<td>
-                                <td>".$item['inicio']."<td>
-                                <td>".$item['conclusao']."<td>
+                                <td>".$item['empresa']."</td>
+                                <td>".$item['funcao']."</td>
+                                <td>".$item['inicio']."</td>
+                                <td>".$item['conclusao']."</td>
                             </tr>
                         ";
                     }
                     echo "</table>";
                 }
             ?>
-            <form class="add_form">
-                <input type="text" placeholder="Empresa">
-                <input type="text" placeholder="Função">
-                <input type="number" placeholder="Ano de início">
-                <input type="number" placeholder="Ano de conclusão">
+            <form class="add_form" method="POST" action="./inserir/experiencia.php">
+                <input type="text" placeholder="Empresa" autocomplete="off" name="empresa">
+                <input type="text" placeholder="Função" autocomplete="off" name="funcao">
+                <input type="number" placeholder="Ano de início" name="inicio">
+                <input type="number" placeholder="Ano de conclusão" name="conclusao">
                 <button>Adicionar</button>
             </form>
         </div>

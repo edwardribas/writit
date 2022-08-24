@@ -177,8 +177,8 @@ table {
     border-collapse: collapse;
     overflow: hidden;
     width: 100%;
-
     max-width: 1000px;
+
 }
 table tr{
     display: flex;
@@ -191,12 +191,13 @@ table th{
     font-weight: 500;
     background-color: transparent;
     color: #d4d4d4;
+    padding: 4px 6px;
     font-size: .95rem;
-    padding: 2px 0;
 }
 table td{
     font-size: .95rem;
     width: 100%;
+    padding: 4px 6px;
 }
 table tr:nth-of-type(odd){
     background-color: rgb(24, 24, 24);
