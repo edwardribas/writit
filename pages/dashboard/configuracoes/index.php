@@ -35,6 +35,21 @@
         <h1 class="title">Configurações</h1>
 
         <div>
+            <div class="config">
+                <form method="POST" class="edit_form" action="./editar/nome_email.php">
+                    <input type="text" value="<?=$nome?>" placeholder="Nome" name="nome" autocomplete="off">
+                    <input type="text" value="<?=$email?>" placeholder="E-mail" name="email" autocomplete="off">
+                    <button>Salvar</button>
+                </form>
+            </div>
+            <div class="config">
+                <form method="POST" class="edit_form" action="./editar/password.php">
+                    <input type="password" placeholder="Senha antiga" name="oldpass" autocomplete="off">
+                    <input type="password" placeholder="Nova senha" name="newpass" autocomplete="off">
+                    <button>Alterar</button>
+                </form>
+            </div>
+
             <?php if($stmt_curr->rowCount() === 1) {?>
                 <div class="config exclude">
                     <button>Excluir</button>
