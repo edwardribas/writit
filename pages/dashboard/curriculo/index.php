@@ -86,11 +86,18 @@
                     echo "</table>";
                 }
             ?>
-            <form class="add_form" method="POST" action="./inserir/habilidade.php">
-                <input type="text" placeholder="Habilidade" name="habilidade" autocomplete="off" autofocus>
-                <input type="number" placeholder="Anos de experiência" name="experiencia" autocomplete="off">
-                <button>Adicionar</button>
-            </form>
+            <div class="row">
+                <form class="add_form" method="POST" action="./inserir/habilidade.php">
+                    <input type="text" placeholder="Habilidade" name="habilidade" autocomplete="off" autofocus>
+                    <input type="number" placeholder="Anos de experiência" name="experiencia" autocomplete="off">
+                    <button>Adicionar</button>
+                </form>
+                <?php
+                    if ($curr_habilidades && count($curr_habilidades) > 0) {
+                        echo "<a href=\"./excluir/habilidades.php\">Esvaziar</a>";
+                    }
+                ?>
+            </div>
         </div>
 
         <div>
@@ -115,10 +122,17 @@
                     echo "</table>";
                 }
             ?>
-            <form class="add_form" method="POST" action="./inserir/competencia.php">
-                <input type="text" placeholder="Competência" name="competencia" autocomplete="off">
-                <button>Adicionar</button>
-            </form>
+            <div class="row">
+                <form class="add_form" method="POST" action="./inserir/competencia.php">
+                    <input type="text" placeholder="Competência" name="competencia" autocomplete="off">
+                    <button>Adicionar</button>
+                </form>
+                <?php
+                    if ($curr_competencias && count($curr_competencias) > 0) {
+                        echo "<a href=\"./excluir/competencias.php\">Esvaziar</a>";
+                    }
+                ?>
+            </div>
         </div>
 
         <div>
@@ -149,13 +163,20 @@
                     echo "</table>";
                 }
             ?>
-            <form class="add_form" method="POST" action="./inserir/educacao.php">
-                <input type="text" placeholder="Instituição" name="instituicao" autocomplete="off">
-                <input type="text" placeholder="Curso" name="curso" autocomplete="off">
-                <input type="number" placeholder="Ano de início" name="inicio">
-                <input type="number" placeholder="Ano de conclusão" name="conclusao">
-                <button>Adicionar</button>
-            </form>
+            <div class="row">
+                <form class="add_form" method="POST" action="./inserir/educacao.php">
+                    <input type="text" placeholder="Instituição" name="instituicao" autocomplete="off">
+                    <input type="text" placeholder="Curso" name="curso" autocomplete="off">
+                    <input type="number" placeholder="Ano de início" name="inicio">
+                    <input type="number" placeholder="Ano de conclusão" name="conclusao">
+                    <button>Adicionar</button>
+                </form>
+                <?php
+                    if ($curr_educacao && count($curr_educacao) > 0) {
+                        echo "<a href=\"./excluir/educacao.php\">Esvaziar</a>";
+                    }
+                ?>
+            </div>
         </div>
 
         <div>
@@ -186,13 +207,20 @@
                     echo "</table>";
                 }
             ?>
-            <form class="add_form" method="POST" action="./inserir/experiencia.php">
-                <input type="text" placeholder="Empresa" autocomplete="off" name="empresa">
-                <input type="text" placeholder="Função" autocomplete="off" name="funcao">
-                <input type="number" placeholder="Ano de início" name="inicio">
-                <input type="number" placeholder="Ano de conclusão" name="conclusao">
-                <button>Adicionar</button>
-            </form>
+            <div class="row">
+                <form class="add_form" method="POST" action="./inserir/experiencia.php">
+                    <input type="text" placeholder="Empresa" autocomplete="off" name="empresa">
+                    <input type="text" placeholder="Função" autocomplete="off" name="funcao">
+                    <input type="number" placeholder="Ano de início" name="inicio">
+                    <input type="number" placeholder="Ano de conclusão" name="conclusao">
+                    <button>Adicionar</button>
+                </form>
+                <?php
+                    if ($curr_experiencias && count($curr_experiencias) > 0) {
+                        echo "<a href=\"./excluir/experiencias.php\">Esvaziar</a>";
+                    }
+                ?>
+            </div>
         </div>
     </main>
 
