@@ -7,12 +7,13 @@
     $email = trim($_POST['email']);
 
     if (isset($nome) && !empty($nome) && isset($email) && !empty($email)) {
-        $sql = "SELECT cpf FROM usuarios WHERE email = ?";
+        $sql = "SELECT cpf FROM usuarios WHERE cpf <> ? AND email = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(1, $email);
+        $stmt->bindParam(1, $_SESSION['cpf']);
+        $stmt->bindParam(2, $email);
         $res = $stmt->execute();
         if (!$res) die($stmt->errorInfo());
-
+        
         if ($stmt->rowCount() < 1) {
             $sql = "UPDATE usuarios SET nome = ?, email = ? WHERE cpf = ? AND nome <> ? OR email <> ?";
             $stmt = $pdo->prepare($sql);

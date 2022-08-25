@@ -54,22 +54,39 @@ form > fieldset > input{
 
 /* Config */
 .config{
+    margin-bottom: 30px;
+}
+.config h2{
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: rgb(150, 150, 150);
+    font-size: .85rem;
+    text-transform: uppercase;
+}
+main > div hr{
+    display: block;
+    margin: 50px 0;
+    width: 100%;
+    max-width: 500px;
+    border: none;
+    height: 1px;
+    background-color: rgb(34, 34, 34);
+}
+
+/* Delete */
+.exclude {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
 }
-.config span{
+.exclude span{
     color: #d4d4d4;
     font-weight: 200;
     font-size: .96rem;
 }
-/* Delete */
-/* .exclude  */
 .exclude button, .confirmation a{
     cursor: pointer;
     user-select: none;
-    border: 1px solid rgb(40, 40, 40);
     border-radius: 50px;
     padding: 7px 14px;
     font-weight: 400;
@@ -98,12 +115,8 @@ form > fieldset > input{
     display: flex;
 }
 .confirmation button{
-    border-color: rgb(48, 48, 48);
+    /* border-color: rgb(48, 48, 48); */
     font-weight: 300;
-}
-.confirmation button:hover{
-    background-color: rgb(33, 33, 33);
-    color: rgb(199, 199, 199);
 }
 
 /* Config Edit Form */
@@ -132,4 +145,40 @@ form > fieldset > input{
     padding: 11px 20px;
     background-color: rgb(60, 97, 207);
     color: rgb(197, 197, 197);
+}
+
+/* Foto */
+.image fieldset{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.image img{
+    object-fit: cover;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.image input{
+    display: none;
+}
+.image :is(label, button){
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: rgb(200, 200, 200);
+    font-weight: 200;
+    padding: 10px 16px;
+    background-color: rgb(66, 99, 197);
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: .95rem;
+    text-transform: none;
+    transition: background-color .2s ease, transform .2s ease;
+}
+.image :is(label, button):hover{
+    background-color: rgb(56, 88, 185);
+}
+.image :is(label, button):active{
+    transform: scale(0.95);
 }

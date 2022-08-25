@@ -36,6 +36,7 @@
 
         <div>
             <div class="config">
+                <h2>Dados da conta<h2>
                 <form method="POST" class="edit_form" action="./editar/nome_email.php">
                     <input type="text" value="<?=$nome?>" placeholder="Nome" name="nome" autocomplete="off">
                     <input type="text" value="<?=$email?>" placeholder="E-mail" name="email" autocomplete="off">
@@ -43,22 +44,48 @@
                 </form>
             </div>
             <div class="config">
+                <h2>Alterar senha<h2>
                 <form method="POST" class="edit_form" action="./editar/password.php">
                     <input type="password" placeholder="Senha antiga" name="oldpass" autocomplete="off">
                     <input type="password" placeholder="Nova senha" name="newpass" autocomplete="off">
-                    <button>Alterar</button>
+                    <button>Salvar</button>
                 </form>
             </div>
-
+            
             <?php if($stmt_curr->rowCount() === 1) {?>
-                <div class="config exclude">
-                    <button>Excluir</button>
-                    <div class="confirmation">
-                        <a href="./deletar/curriculo.php">Confirmar</a>
-                        <button>Cancelar</button>
-                    </div>
-                    <span>Excluir todos os dados do currículo.<span>
+                <div class="config">
+                    <h2>Currículo<h2>
+                    <form method="POST" class="edit_form" action="./editar/curriculo.php">
+                        <input type="text" value="<?=$curr_nome?>" placeholder="Nome" name="nome" autocomplete="off">
+                        <input type="email" value="<?=$curr_email?>" placeholder="E-mail" name="email" autocomplete="off">
+                        <input type="text" value="<?=$curr_cidade?>" placeholder="Cidade" name="cidade" autocomplete="off">
+                        <input type="number" value="<?=$curr_telefone?>" placeholder="Telefone" name="telefone" autocomplete="off">
+                        <button>Salvar</button>
+                    </form>
                 </div>
+                <div class="config">
+                    <h2>Alterar foto<h2>
+                    <form method="POST" class="image" action="./editar/foto.php" enctype="multipart/form-data">
+                        <fieldset>
+                            <img src="data:image/png;base64,<?=$curr_foto?>">
+                            <label for="imagem">Enviar imagem</label>
+                            <input type="file" id="imagem" name="imagem" accept="image/png, image/jpeg, image/jpg">
+                        </fieldset>
+                        <button>Alterar</button>
+                    </form>
+                </div>
+            <?php }?>
+
+            <hr>
+            <?php if($stmt_curr->rowCount() === 1) {?>
+            <div class="config exclude">
+                <button>Excluir</button>
+                <div class="confirmation">
+                    <a href="./deletar/curriculo.php">Confirmar</a>
+                    <button>Cancelar</button>
+                </div>
+                <span>Excluir todos os dados do currículo.<span>
+            </div>
             <?php }?>
 
             <div class="config exclude">                    
