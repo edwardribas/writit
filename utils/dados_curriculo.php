@@ -28,6 +28,7 @@
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
         if (!$res) die($stmt->errorInfo());
+        $curr_habilidades = array();
         if ($stmt->rowCount() > 0) {
             $curr_dados['habilidades'] = true;
             $curr_habilidades = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -39,6 +40,7 @@
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
         if (!$res) die($stmt->errorInfo());
+        $curr_educacao = array();
         if ($stmt->rowCount() > 0) {
             $curr_dados['educacao'] = true;
             $curr_educacao = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -50,6 +52,7 @@
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
         if (!$res) die($stmt->errorInfo());
+        $curr_competencias = array();
         if ($stmt->rowCount() > 0) {
             $curr_dados['competencias'] = true;
             $curr_competencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -61,6 +64,7 @@
         $stmt->bindParam(1, $curr_id);
         $res = $stmt->execute();
         if (!$res) die($stmt->errorInfo());
+        $curr_experiencias = array();
         if ($stmt->rowCount() > 0) {
             $curr_dados['experiencia'] = true;
             $curr_experiencias = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -58,6 +58,10 @@
                     <span><i class="fa-solid fa-phone"></i></span> 
                     <?=$curr_telefone?>
                 </p>
+                <a href="pdf.php" target="_blank">
+                    <span><i class="fa-solid fa-file-pdf"></i></span> 
+                    Baixar PDF
+                </a>
             </div>
         </div>
 

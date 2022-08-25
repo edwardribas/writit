@@ -105,7 +105,7 @@ main > div > p{
     margin-top: 20px;
     gap: 15px;
 }
-.curr_dados p{
+.curr_dados :is(p, a){
     font-size: .95rem;
     display: flex;
     gap: 10px;
@@ -116,7 +116,7 @@ main > div > p{
     border: 1px solid rgb(40, 40, 40);
     transition: transform .2s ease, background-color .2s ease;
 }
-.curr_dados p > span{
+.curr_dados span{
     display: flex;
     font-size: .85  rem;
     align-items: center;
@@ -128,12 +128,19 @@ main > div > p{
     background-color: #c4c4c4;
     transition: background-color .2s ease, color .2s ease;
 }
-.curr_dados p:hover{
+.curr_dados a{
+    background-color: #1b76ff;
+    color: #141414;
+}
+.curr_dados :is(p, a):hover{
     transform: translateY(-3px);
     background-color: #161616;
 }
-.curr_dados p:hover > span{
+.curr_dados :is(p, a):hover span{
     background-color: #f1f1f1;
+}
+.curr_dados a:hover{
+    background-color: #3284ff;
 }
 
 .add_form{
@@ -163,8 +170,8 @@ main > div > p{
     border: 1px solid rgb(41, 41, 41);
 }
 .add_form button{
-    background-color: rgb(1, 1, 219);
-    color: #d4d4d4;
+    background-color: #1b76ff;
+    color: #202020;
     cursor: pointer;
 }
 
@@ -212,10 +219,11 @@ table tr:nth-of-type(odd){
 }
 .row > a{
     display: inline-block;
-    background-color: #fc5353;
-    color: rgb(30, 30, 30);
+    background-color: transparent;
+    border: 1px solid #fc5353;
+    color: #fc5353;
     font-weight: 400;
-    padding: 12px 16px;
+    padding: 11px 16px;
     font-size: .9rem;
     border-radius: 50px;
 }
