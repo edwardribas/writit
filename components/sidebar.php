@@ -21,6 +21,9 @@
                         ? "<li><a href=\"http://localhost/writit/pages/dashboard/curriculo\"><i class=\"fa-solid fa-user\"></i> Currículo</a></li>"
                         : "<li><a href=\"http://localhost/writit/pages/dashboard/curriculo/novo\"><i class=\"fa-solid fa-user\"></i> Criar currículo</a></li>";
                 }
+                if ($tipo === "3") {
+                    echo "<li><a href=\"http://localhost/writit/pages/dashboard/usuarios\"><i class=\"fa-solid fa-user\"></i> Ver usuários</a></li>";
+                }
             ?>
             <li><a href="http://localhost/writit/pages/dashboard/configuracoes"><i class="fa-solid fa-gear"></i> Configurações</a></li>
             <li class="cta-link"><a href="http://localhost/writit/utils/deslogar.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair </a></li>

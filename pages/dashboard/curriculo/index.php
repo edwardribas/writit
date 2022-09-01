@@ -5,7 +5,8 @@
     include_once '../../../utils/database.php';
     include_once '../../../utils/dados_usuario.php';
     include_once '../../../utils/dados_curriculo.php';
-    if ($stmt_curr->rowCount() === 0) Header('Location: http://localhost/writit/pages/dashboard/curriculo/novow');
+    if ($stmt_curr->rowCount() === 0) Header('Location: http://localhost/writit/pages/dashboard/curriculo/novo');
+    if ($tipo != 1) Header('Location: http://localhost/writit/pages/dashboard/');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
